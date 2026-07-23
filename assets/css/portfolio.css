@@ -228,6 +228,32 @@
 .case__rows dd { margin: 0; color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
 .case__lesson dd { color: var(--text); font-weight: 500; }
 
+/* ---------- HPE visit gallery ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+}
+.gallery__item {
+  display: block;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  aspect-ratio: 4 / 3;
+}
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s var(--ease);
+}
+.gallery__item:hover img { transform: scale(1.05); }
+.gallery__note { text-align: center; color: var(--text-dim); font-size: 0.85rem; margin-top: 1.1rem; }
+@media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 440px) { .gallery { grid-template-columns: 1fr; } }
+
 /* ---------- Portfolio-scoped tweaks ---------- */
 #experience .exp { max-width: 860px; margin-inline: auto; }
 

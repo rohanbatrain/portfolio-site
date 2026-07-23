@@ -1,0 +1,565 @@
+/* =========================================================
+   Gallery, Lightbox, Day-tabs, Preloader & LinkedIn moment
+   Rohan Batra (@rohanbatrain) — HPE enterprise design language.
+
+   Extends assets/css/styles.css + portfolio.css (HPE tokens).
+   Load order: styles.css -> portfolio.css -> gallery.css
+   (so this file intentionally overrides the older .gallery /
+   .gallery__item rules in portfolio.css).
+
+   Motif: the "HPE element" = a thin, SHARP-cornered green
+   rectangle, and restrained HPE-green motion over a dark
+   green-black ground. Green is a signature accent, never a
+   wash. Everything is theme-aware (dark default + [data-theme])
+   and responsive with no horizontal scroll.
+   ========================================================= */
+
+
+/* =========================================================
+   1) PRELOADER  —  #preloader.preloader
+   Full-screen HPE intro loader: dark green-black ground,
+   three rising HPE-green rectangles, a letter-spaced wordmark,
+   and a thin indeterminate track. JS adds .preloader--done.
+   ========================================================= */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: var(--bg);
+  /* Fade-out is driven by .preloader--done (JS), then hidden. */
+  transition: opacity 0.6s var(--ease), visibility 0.6s var(--ease);
+}
+/* Restrained green aura behind the mark — the HPE ground glow. */
+.preloader::before {
+  content: "";
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  width: min(620px, 90vw);
+  height: 420px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--green-glow), transparent 62%);
+  filter: blur(42px);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.preloader__stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.55rem;
+}
+
+/* --- The HPE "element": three sharp green rectangles that
+       rise from the baseline in a staggered wave. --- */
+.preloader__element {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 58px;
+}
+.preloader__element span {
+  display: block;
+  width: 14px;
+  height: 100%;
+  background: var(--green);
+  box-shadow: 0 8px 24px -6px var(--green-glow);
+  transform-origin: bottom center;
+  transform: scaleY(0.28);
+  opacity: 0.5;
+  animation: pl-rise 1.25s var(--ease) infinite;
+}
+.preloader__element span:nth-child(2) { background: var(--green-bright); animation-delay: 0.15s; }
+.preloader__element span:nth-child(3) { animation-delay: 0.30s; }
+
+@keyframes pl-rise {
+  0%, 70%, 100% { transform: scaleY(0.28); opacity: 0.5; }
+  35%           { transform: scaleY(1);    opacity: 1; }
+}
+
+/* --- Wordmark: quiet, letter-spaced, breathing. --- */
+.preloader__word {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  /* nudge for the trailing letter-spacing so it optically centers */
+  padding-left: 0.32em;
+  color: var(--text-muted);
+  animation: pl-breathe 2.4s ease-in-out infinite;
+}
+@keyframes pl-breathe {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+
+/* --- Thin indeterminate rail with a green sweep. --- */
+.preloader__track {
+  position: relative;
+  width: 180px;
+  max-width: 60vw;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+.preloader__track i {
+  position: absolute;
+  top: 0;
+  left: -42%;
+  height: 100%;
+  width: 42%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--green), var(--green-bright));
+  animation: pl-track 1.4s var(--ease) infinite;
+}
+@keyframes pl-track {
+  0%   { left: -42%; }
+  100% { left: 100%; }
+}
+
+/* --- Done: fade + remove from the a11y/hit tree. --- */
+.preloader--done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Reduced motion: no looping build/sweep. Present the loader in
+   a calm, complete resting state (the global reduce rule freezes
+   animations mid-frame, so we pin the finished look explicitly). */
+@media (prefers-reduced-motion: reduce) {
+  .preloader__element span { animation: none; transform: none; opacity: 1; }
+  .preloader__word { animation: none; opacity: 1; }
+  .preloader__track i { animation: none; left: 0; width: 100%; background: var(--green); }
+}
+
+
+/* =========================================================
+   2) GALLERY GRID  —  .gallery / #galleryGrid
+   Buttons rendered by gallery.js: <button class="gallery__item">
+   <img></button>. Overrides the older portfolio.css rules.
+   ========================================================= */
+.gallery {
+  display: grid;
+  /* min(...,100%) keeps a single column from overflowing narrow phones */
+  grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+  gap: clamp(0.6rem, 1.6vw, 1rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gallery__item {
+  /* --- reset the native button --- */
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: zoom-in;
+  -webkit-tap-highlight-color: transparent;
+  /* --- tile --- */
+  width: 100%;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2); /* loading state — no white flash */
+  aspect-ratio: 4 / 3;
+  box-shadow: var(--shadow);
+  transition: transform 0.28s var(--ease), border-color 0.28s var(--ease), box-shadow 0.28s var(--ease);
+}
+/* Faint green overlay that rises on hover/focus. */
+.gallery__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--green) 14%, transparent);
+  opacity: 0;
+  transition: opacity 0.28s var(--ease);
+  pointer-events: none;
+}
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: var(--surface-2);
+  transition: transform 0.5s var(--ease);
+}
+
+.gallery__item:hover,
+.gallery__item:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--green);
+  /* green shadow + a crisp inner ring = the "green ring" accent */
+  box-shadow: var(--shadow-green), inset 0 0 0 1px var(--green);
+}
+.gallery__item:hover img,
+.gallery__item:focus-visible img { transform: scale(1.05); }
+.gallery__item:hover::after,
+.gallery__item:focus-visible::after { opacity: 1; }
+
+/* View-more mechanism hides overflow items. */
+.gallery__item.is-hidden { display: none; }
+
+
+/* =========================================================
+   3) DAY-FILTER TABS  —  .gallery-tabs / .gallery-tab
+   Clean pill segmented control, centered, wraps on mobile.
+   ========================================================= */
+.gallery-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 820px;
+  margin: 0 auto clamp(1.6rem, 3.5vh, 2.4rem);
+}
+.gallery-tab {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.55em 1.15em;
+  transition: color 0.2s var(--ease), background 0.2s var(--ease),
+              border-color 0.2s var(--ease), box-shadow 0.2s var(--ease),
+              transform 0.2s var(--ease);
+}
+.gallery-tab:hover {
+  color: var(--text);
+  background: var(--surface-2);
+  border-color: var(--border-strong);
+}
+.gallery-tab:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+/* Active = filled HPE green. */
+.gallery-tab.is-active {
+  color: var(--on-green);
+  background: var(--green);
+  border-color: var(--green);
+  box-shadow: var(--shadow-green);
+}
+.gallery-tab.is-active:hover {
+  color: var(--on-green);
+  background: var(--green-bright);
+  border-color: var(--green-bright);
+}
+
+
+/* =========================================================
+   4) VIEW-MORE  —  .gallery-more (button reuses .btn.btn--ghost)
+   ========================================================= */
+.gallery-more {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(1.4rem, 3vh, 2rem);
+}
+/* .btn sets display:inline-flex, which would defeat the [hidden]
+   attribute — keep the button hidden until JS reveals it. */
+.gallery-more .btn[hidden] { display: none; }
+#galleryMoreCount {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+
+/* =========================================================
+   5) LINKEDIN MOMENT  —  .li-moment (an <a>)
+   A tasteful mini post-preview: badge | body | cta.
+   ========================================================= */
+.li-moment {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(0.9rem, 2vw, 1.3rem);
+  max-width: 640px;
+  margin: clamp(1.8rem, 4vh, 2.6rem) auto 0;
+  padding: clamp(1.1rem, 2.6vw, 1.5rem) clamp(1.2rem, 2.8vw, 1.6rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.li-moment:hover {
+  transform: translateY(-3px);
+  border-color: var(--green);
+  box-shadow: var(--shadow-green);
+}
+
+/* The LinkedIn "in" mark — LinkedIn brand blue + white, kept
+   literal so it reads as a shared post (not an HPE token). */
+.li-moment__badge {
+  flex: none;
+  align-self: start;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: #0a66c2;
+  color: #fff;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  box-shadow: 0 6px 18px -8px rgba(10, 102, 194, 0.7);
+}
+
+.li-moment__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0; /* allow text to wrap inside the grid track */
+}
+.li-moment__head {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.li-moment__head b {
+  font-family: var(--font-head);
+  font-weight: 600;
+  color: var(--text);
+}
+.li-moment__sub { color: var(--text-dim); }
+.li-moment__text {
+  font-size: 0.96rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+.li-moment__text b {
+  font-weight: 600;
+  color: var(--brand-ink); /* accent the hashtags in HPE green */
+}
+.li-moment__tags {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  color: var(--text-dim);
+}
+
+.li-moment__cta {
+  flex: none;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--green);
+}
+.li-moment__cta span { transition: transform 0.2s var(--ease); }
+.li-moment:hover .li-moment__cta { color: var(--green-bright); }
+.li-moment:hover .li-moment__cta span { transform: translateX(4px); }
+
+
+/* =========================================================
+   6) LIGHTBOX  —  .lightbox / #lightbox
+   Full-screen in-page media viewer. The scrim is always dark
+   (in BOTH themes), so its controls/text use fixed light-on-
+   dark values; only the green accent comes from the tokens.
+   Visibility is toggled by JS via [aria-hidden].
+   ========================================================= */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  /* hidden by default ([aria-hidden="true"] in the markup) */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
+}
+.lightbox[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.lightbox__stage {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  max-width: 92vw;
+  transform: scale(0.96);
+  transition: transform 0.3s var(--ease);
+}
+.lightbox[aria-hidden="false"] .lightbox__stage { transform: scale(1); }
+
+.lightbox__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 92vw;
+  max-height: 84vh;
+}
+.lightbox__media img,
+.lightbox__media iframe {
+  display: block;
+  max-width: 92vw;
+  max-height: 84vh;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.8);
+  background: var(--surface-2);
+}
+.lightbox__media img {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s var(--ease);
+}
+.lightbox__media iframe {
+  width: min(92vw, 1200px);
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+}
+/* Optional click-to-zoom state. */
+.lightbox__media.is-zoomed { cursor: zoom-out; }
+.lightbox__media.is-zoomed img { transform: scale(1.5); cursor: zoom-out; }
+
+.lightbox__caption {
+  max-width: min(92vw, 720px);
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* --- Controls: circular, glassy, green on hover --- */
+.lightbox__btn {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease),
+              color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.lightbox__btn:hover {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--on-green);
+  transform: scale(1.06);
+}
+.lightbox__btn:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+.lightbox__close {
+  top: clamp(0.8rem, 2.5vw, 1.5rem);
+  right: clamp(0.8rem, 2.5vw, 1.5rem);
+  font-size: 1.05rem;
+}
+
+/* Prev/next: large tap targets, vertically centered on the edges. */
+.lightbox__nav {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  font-size: 1.9rem;
+}
+.lightbox__prev { left: clamp(0.6rem, 2.5vw, 1.5rem); }
+.lightbox__next { right: clamp(0.6rem, 2.5vw, 1.5rem); }
+/* keep vertical centering while adding the hover pop */
+.lightbox__nav:hover { transform: translateY(-50%) scale(1.06); }
+
+.lightbox__count {
+  position: absolute;
+  bottom: clamp(0.8rem, 3vh, 1.6rem);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+/* LinkedIn card: badge + body stay side-by-side, CTA drops below. */
+@media (max-width: 540px) {
+  .li-moment {
+    grid-template-columns: auto 1fr;
+    gap: 0.7rem 0.9rem;
+  }
+  .li-moment__cta {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    padding-top: 0.1rem;
+  }
+}
+
+/* Lightbox on small screens: nav moves to the bottom corners,
+   the counter to the top-left, so nothing overlaps the image. */
+@media (max-width: 560px) {
+  .lightbox__nav {
+    top: auto;
+    bottom: clamp(0.8rem, 3vh, 1.4rem);
+    transform: none;
+  }
+  .lightbox__nav:hover { transform: scale(1.06); }
+  .lightbox__prev { left: clamp(0.8rem, 5vw, 1.4rem); }
+  .lightbox__next { right: clamp(0.8rem, 5vw, 1.4rem); }
+  .lightbox__count {
+    bottom: auto;
+    top: clamp(0.8rem, 2.6vw, 1.4rem);
+    left: clamp(0.8rem, 5vw, 1.4rem);
+    transform: none;
+  }
+  .lightbox__btn { width: 44px; height: 44px; }
+}

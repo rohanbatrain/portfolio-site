@@ -24,8 +24,18 @@
 
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/portfolio.css" />
+  <link rel="stylesheet" href="assets/css/gallery.css" />
 </head>
 <body>
+  <!-- ================= PRELOADER (HPE-style intro) ================= -->
+  <div id="preloader" class="preloader" role="status" aria-label="Loading Rohan Batra">
+    <div class="preloader__stage" aria-hidden="true">
+      <div class="preloader__element"><span></span><span></span><span></span></div>
+      <div class="preloader__word">Rohan&nbsp;Batra</div>
+      <div class="preloader__track"><i></i></div>
+    </div>
+  </div>
+
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ================= NAV ================= -->
@@ -490,40 +500,56 @@
       </div>
     </section>
 
-    <!-- ================= HPE VISIT GALLERY ================= -->
+    <!-- ================= HPE GALLERY (two days) ================= -->
     <section class="section section--alt" id="gallery">
       <div class="container">
         <header class="section__head reveal">
-          <span class="kicker">HPE at UPES · 20 July 2026</span>
-          <h2>The day we presented UPES-ECS</h2>
+          <span class="kicker">Gallery</span>
+          <h2>Two days with Team HPE</h2>
           <p class="section__sub">
-            Team HPE visited the UPES campus for a live walkthrough of UPES-ECS on its
-            HPE + Juniper networking backbone.
+            UPES-ECS at HPE's Networking University Day (Bengaluru, 15 Jul) and Team HPE's visit to
+            UPES (20 Jul). Tap any photo to open the viewer.
           </p>
         </header>
-        <div class="gallery reveal">
-          <a class="gallery__item" href="https://drive.google.com/file/d/1-AgbUmOzlYRIdSPDMp860gA46l2eEGnF/view" target="_blank" rel="noopener">
-            <img loading="lazy" alt="Team HPE at the UPES campus for the UPES-ECS presentation, 20 July 2026" src="https://drive.google.com/thumbnail?id=1-AgbUmOzlYRIdSPDMp860gA46l2eEGnF&sz=w1600" />
-          </a>
-          <a class="gallery__item" href="https://drive.google.com/file/d/1-J0C6_Jpz42OWMv7YR0pgx4GyjwAec5W/view" target="_blank" rel="noopener">
-            <img loading="lazy" alt="Presenting UPES-ECS to Team HPE at UPES, July 2026" src="https://drive.google.com/thumbnail?id=1-J0C6_Jpz42OWMv7YR0pgx4GyjwAec5W&sz=w1600" />
-          </a>
-          <a class="gallery__item" href="https://drive.google.com/file/d/1fIqoFcGg0ctCgCsQmUOYkNJKypV-bg_2/view" target="_blank" rel="noopener">
-            <img loading="lazy" alt="UPES-ECS live demonstration during the HPE campus visit" src="https://drive.google.com/thumbnail?id=1fIqoFcGg0ctCgCsQmUOYkNJKypV-bg_2&sz=w1600" />
-          </a>
-          <a class="gallery__item" href="https://drive.google.com/file/d/1FnMfXVULpSaETMnFRnlPUUEagAyg3J8T/view" target="_blank" rel="noopener">
-            <img loading="lazy" alt="Team HPE and UPES students during the UPES-ECS showcase" src="https://drive.google.com/thumbnail?id=1FnMfXVULpSaETMnFRnlPUUEagAyg3J8T&sz=w1600" />
-          </a>
-          <a class="gallery__item" href="https://drive.google.com/file/d/1y0Tjd5zku1yI4w3pRqW3xx71lyJJ2Zs_/view" target="_blank" rel="noopener">
-            <img loading="lazy" alt="UPES-ECS walkthrough on its HPE and Juniper networking backbone" src="https://drive.google.com/thumbnail?id=1y0Tjd5zku1yI4w3pRqW3xx71lyJJ2Zs_&sz=w1600" />
-          </a>
-          <a class="gallery__item" href="https://drive.google.com/file/d/1K0aKg--CFVjz5OUVjAqQ59xArYHYrfyL/view" target="_blank" rel="noopener">
-            <img loading="lazy" alt="HPE visit to UPES — UPES-ECS emergency communication system demo" src="https://drive.google.com/thumbnail?id=1K0aKg--CFVjz5OUVjAqQ59xArYHYrfyL&sz=w1600" />
-          </a>
+
+        <div class="gallery-tabs reveal" role="tablist" aria-label="Filter photos by day">
+          <button class="gallery-tab is-active" type="button" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="gallery-tab" type="button" data-filter="d15" role="tab" aria-selected="false">15 Jul · Bangalore University Day</button>
+          <button class="gallery-tab" type="button" data-filter="d20" role="tab" aria-selected="false">20 Jul · HPE at UPES</button>
         </div>
-        <p class="gallery__note">Photos from the HPE visit to UPES · July 2026</p>
+
+        <div class="gallery" id="galleryGrid" role="list" aria-live="polite"><!-- rendered by gallery.js --></div>
+
+        <div class="gallery-more">
+          <button class="btn btn--ghost" type="button" id="galleryMore" hidden>View more <span id="galleryMoreCount" aria-hidden="true"></span></button>
+        </div>
+
+        <!-- Creative LinkedIn moment: a mini post-preview that links to the real post -->
+        <a class="li-moment reveal" href="https://www.linkedin.com/posts/rohanbatrain_hpenetworkinguniversityday2026-hpe-networking-activity-7485409720799752192-P9VL" target="_blank" rel="noopener" aria-label="Read Rohan's LinkedIn post about HPE Networking University Day 2026">
+          <span class="li-moment__badge" aria-hidden="true">in</span>
+          <span class="li-moment__body">
+            <span class="li-moment__head"><b>Rohan Batra</b> · <span class="li-moment__sub">shared a moment</span></span>
+            <span class="li-moment__text">Representing UPES at <b>#HPENetworkingUniversityDay2026</b> — a first-hand look at enterprise networking with Team HPE. When networks fail, we don't.</span>
+            <span class="li-moment__tags">#HPE&nbsp;·&nbsp;#Networking&nbsp;·&nbsp;#UPES</span>
+          </span>
+          <span class="li-moment__cta">Read the post <span aria-hidden="true">→</span></span>
+        </a>
+
+        <p class="gallery__note">Photos from the HPE × UPES visits · July 2026</p>
       </div>
     </section>
+
+    <!-- ================= LIGHTBOX (in-page media viewer) ================= -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Photo viewer">
+      <button class="lightbox__btn lightbox__close" id="lbClose" type="button" aria-label="Close (Esc)">✕</button>
+      <button class="lightbox__btn lightbox__nav lightbox__prev" id="lbPrev" type="button" aria-label="Previous photo">‹</button>
+      <figure class="lightbox__stage">
+        <div class="lightbox__media" id="lbMedia"></div>
+        <figcaption class="lightbox__caption" id="lbCaption"></figcaption>
+      </figure>
+      <button class="lightbox__btn lightbox__nav lightbox__next" id="lbNext" type="button" aria-label="Next photo">›</button>
+      <div class="lightbox__count" id="lbCount" aria-live="polite"></div>
+    </div>
 
     <!-- ================= CONTACT ================= -->
     <section class="section" id="contact">
@@ -563,6 +589,47 @@
     </div>
   </footer>
 
+  <script>
+    /* Gallery data — edit here to add photos. day: "d15" (Bangalore University Day, 15 Jul) or "d20" (HPE at UPES, 20 Jul). */
+    window.GALLERY = {
+      perPage: 8,
+      dayLabels: {
+        d15: "HPE Networking University Day · Bengaluru · 15 Jul 2026",
+        d20: "Team HPE at UPES · 20 Jul 2026"
+      },
+      photos: [
+        {id:"1kBAPQMECe-3w05Bpl8Xr8CO21N6VNs02", day:"d15"},
+        {id:"16yBpnhfjQWo1QouQVJxdeOe8J71uampq", day:"d15"},
+        {id:"1sNwJq_3s1Z-P7SRv-sRtdLhHorWUgLq-", day:"d15"},
+        {id:"1VpB8zP0gXqxAFjvztBGjgt5YNIZa2Rsf", day:"d15"},
+        {id:"17cIqORkOWTAZkhFCaAUIByGkzPm-LQYl", day:"d15"},
+        {id:"1Mm4NwsTgXRn0H1RelOVQcbOld8ifxbFY", day:"d15"},
+        {id:"1HA1VHtTCtl2_bJ4sWKUSMHUjyU5IbDo7", day:"d15"},
+        {id:"1-sPZi8XDXb8ekVYYTAAT-nSEO1LV6CD0", day:"d15"},
+        {id:"1f4pp6P-2r29tlZztyGzIRUYeIRz4rY3Z", day:"d15"},
+        {id:"14qlGxWm5oNKMe7kxj0f5Z7HfVJsdMFoy", day:"d15"},
+        {id:"1j60VJDyj77noFvOBYcKk80q8QbatR0sa", day:"d15"},
+        {id:"1XeY3SkeszhiGr6pnHjO7nPetGJYH0kKT", day:"d15"},
+        {id:"1MuV9hb-N1g1XJfUf7IWxFb0V0nHf0tuz", day:"d15"},
+        {id:"1o2KU_d2vqp2iBGDZRBmU5BItucw5Z5cw", day:"d15"},
+        {id:"1XmMzimlNA5ATwwTX7nWJRYzsyDZE-Kvu", day:"d15"},
+        {id:"1I8FdKLQx_itZ2SFdbR44ZoHP-VJLgTcu", day:"d15"},
+        {id:"13r2A44MMGVbMZmzfr7xL5P7d3qW-ZyAe", day:"d15"},
+        {id:"1Xa2mOlnkzfJQ5oDi_SkrBzqrAt5ZK-U7", day:"d15"},
+        {id:"13ugOp1HQoOYsp0u4KovhAp8S6l6NCv0-", day:"d15"},
+        {id:"1xwCEl-ITFUhytJ-lgSf5Ypcq10u5bKlv", day:"d15"},
+        {id:"1UfeUjON9XYol9GxvBVzJna48Ec4xUfal", day:"d15"},
+        {id:"1EL_EU37qipYjuwHz7Gpvb-atwt5PhhoN", day:"d15"},
+        {id:"1-AgbUmOzlYRIdSPDMp860gA46l2eEGnF", day:"d20"},
+        {id:"1-J0C6_Jpz42OWMv7YR0pgx4GyjwAec5W", day:"d20"},
+        {id:"1fIqoFcGg0ctCgCsQmUOYkNJKypV-bg_2", day:"d20"},
+        {id:"1FnMfXVULpSaETMnFRnlPUUEagAyg3J8T", day:"d20"},
+        {id:"1y0Tjd5zku1yI4w3pRqW3xx71lyJJ2Zs_", day:"d20"},
+        {id:"1K0aKg--CFVjz5OUVjAqQ59xArYHYrfyL", day:"d20"}
+      ]
+    };
+  </script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/gallery.js"></script>
 </body>
 </html>

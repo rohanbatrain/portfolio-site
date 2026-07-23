@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rohan Batra — Platform &amp; Reliability Engineer</title>
+  <meta name="description" content="Rohan Batra (@rohanbatrain) — Platform &amp; Reliability Engineer. I build and operate systems that stay up: Linux, containers, backend services, and enterprise networking." />
+  <meta name="author" content="Rohan Batra" />
+  <meta name="theme-color" content="#0b0f14" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Rohan Batra — Platform &amp; Reliability Engineer" />
+  <meta property="og:description" content="I build and operate systems that stay up — Linux, containers, backend, and enterprise networking." />
+  <meta property="og:url" content="https://hpe.rohanbatra.in/" />
+  <meta property="og:site_name" content="Rohan Batra" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2301a982'/><text x='50' y='73' font-size='56' font-family='monospace' font-weight='700' text-anchor='middle' fill='%23042018'>RB</text></svg>" />
+
+  <!-- Fonts (progressive enhancement; strong system fallback in CSS) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/portfolio.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ================= NAV ================= -->
+  <header class="nav" id="top">
+    <div class="nav__inner container">
+      <a class="brand" href="#top" aria-label="Home — Rohan Batra">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span class="brand__name">Rohan&nbsp;Batra</span>
+        <span class="brand__sep">/</span>
+        <span class="brand__tag">@rohanbatrain</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#reliability">Reliability</a>
+        <a href="#experience">Experience</a>
+        <a href="https://rohanbatrain.github.io/UPES-ECS/">UPES-ECS&nbsp;×&nbsp;HPE</a>
+        <a href="#contact" class="nav__cta">Contact</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle theme">
+        <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+      </button>
+      <button class="nav__burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <p class="hero__eyebrow reveal">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          Platform &amp; Reliability Engineer · Open to full-time roles · 2026
+        </p>
+        <h1 class="hero__title reveal">Rohan Batra</h1>
+        <p class="hero__tagline reveal">
+          I build and operate systems that <span class="grad-text">stay up</span> — and when they don't, I find out why.
+        </p>
+        <p class="hero__lede reveal">
+          Early-career engineer who already ships and operates real infrastructure — a
+          multi-tenant platform on <strong>Kubernetes / EKS</strong> in industry, and a
+          <strong>production system I run</strong> on enterprise networking. I'm looking for a
+          platform / SRE team to do this at scale.
+        </p>
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary" href="#projects">View my work</a>
+          <a class="btn btn--ghost" href="Rohan-Batra-Resume.pdf" download>Résumé ↓</a>
+          <a class="btn btn--ghost" href="https://github.com/rohanbatrain" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <dl class="hero__stats reveal">
+          <div><dt>8&nbsp;mo</dt><dd>Platform engineering in industry (Eve)</dd></div>
+          <div><dt>K8s&nbsp;+&nbsp;EKS</dt><dd>Shipped to production</dd></div>
+          <div><dt>Always-on</dt><dd>Production system I operate</dd></div>
+          <div><dt>HPE&nbsp;+&nbsp;Juniper</dt><dd>Hands-on enterprise networking</dd></div>
+        </dl>
+      </div>
+      <a href="#about" class="hero__scroll" aria-label="Scroll to content">↓</a>
+    </section>
+
+    <!-- ================= WHERE I FIT ================= -->
+    <section class="section section--alt" id="fit">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="kicker">Where I Fit</span>
+          <h2>Built for enterprise infrastructure</h2>
+          <p class="section__sub">
+            The work I already do maps to how large infrastructure actually runs — on-prem and
+            hybrid, over enterprise networks, and operated for uptime.
+          </p>
+        </header>
+        <div class="feature-grid">
+          <article class="feature reveal">
+            <div class="feature__icon" aria-hidden="true">🏢</div>
+            <h3>Runs on-prem, not just the cloud</h3>
+            <p>I build systems that live in a data center or at the edge — reproducible provisioning, containers, and high availability, air-gapped when it has to be.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature__icon" aria-hidden="true">🌐</div>
+            <h3>Speaks enterprise networking</h3>
+            <p>Hands-on with Juniper SRX, EX, and Mist — now part of HPE Networking — and comfortable at the platform and service layer above it.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature__icon" aria-hidden="true">📈</div>
+            <h3>Operated for uptime</h3>
+            <p>Health checks, observability, incident root-cause analysis, and runbooks. I treat reliability as the job, not an afterthought.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="kicker">About</span>
+          <h2>Happiest close to the infrastructure</h2>
+        </header>
+
+        <div class="bio reveal">
+          <div class="bio__main">
+            <p>
+              I'm an early-career platform &amp; reliability engineer, finishing my degree at UPES.
+              I like working end-to-end: writing the backend service, containerizing it, wiring up
+              CI/CD, and then owning it in production. The part that holds my attention is the
+              operations side — health checks, deploys, observability, and the unglamorous
+              reliability work that keeps a system up.
+            </p>
+            <p>
+              That started on my own hardware — Linux compiled from source, Proxmox, a home lab I
+              actually run — and now extends from a multi-tenant platform at an early-stage startup
+              to a resilient, offline-first emergency communication system I designed and operate on
+              enterprise networking gear.
+            </p>
+          </div>
+          <aside class="bio__card" aria-label="At a glance">
+            <ul class="bio__facts">
+              <li><span>Open to</span><strong>Platform · SRE · DevOps roles (2026)</strong></li>
+              <li><span>Based in</span><strong>India · open to Bengaluru / relocation</strong></li>
+              <li><span>Experience</span><strong>Platform engineering @ Eve · 8 months</strong></li>
+              <li><span>Focus</span><strong>Linux · Kubernetes · Reliability</strong></li>
+              <li><span>Everywhere</span><strong>@rohanbatrain</strong></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section class="section section--alt" id="skills">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="kicker">Skills</span>
+          <h2>The stack I reach for</h2>
+          <p class="section__sub">
+            Weighted toward the systems and platform layer, with real breadth across backend,
+            reliability, and AI tooling.
+          </p>
+        </header>
+
+        <div class="skillset">
+          <article class="skillset__group reveal">
+            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">🐧</span> Linux &amp; Systems</h3>
+            <ul class="skillset__list">
+              <li>Linux</li><li>systemd</li><li>Nix</li><li>Bash</li><li>Compiling from source</li>
+            </ul>
+          </article>
+
+          <article class="skillset__group reveal">
+            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">📦</span> Containers &amp; Cloud</h3>
+            <ul class="skillset__list">
+              <li>Docker</li><li>Kubernetes / EKS</li><li>Proxmox</li><li>CI/CD (GitHub Actions)</li>
+            </ul>
+          </article>
+
+          <article class="skillset__group reveal">
+            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">⚙️</span> Backend</h3>
+            <ul class="skillset__list">
+              <li>Python</li><li>FastAPI</li><li>MongoDB</li><li>Redis</li><li>Qdrant</li><li>Celery</li><li>REST / OpenAPI</li>
+            </ul>
+          </article>
+
+          <article class="skillset__group reveal">
+            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">📈</span> Reliability &amp; Observability</h3>
+            <ul class="skillset__list">
+              <li>Prometheus</li><li>Health checks</li><li>HA (keepalived)</li><li>Load testing</li>
+            </ul>
+          </article>
+
+          <article class="skillset__group reveal">
+            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">🌐</span> Networking</h3>
+            <ul class="skillset__list">
+              <li>TCP/IP</li><li>DNS</li><li>VLAN / QoS</li><li>Juniper (SRX/EX/Mist)</li><li>Tailscale</li>
+            </ul>
+          </article>
+
+          <article class="skillset__group reveal">
+            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">🤖</span> AI &amp; Testing</h3>
+            <ul class="skillset__list">
+              <li>LLM agents (Claude Agent SDK)</li><li>LangChain</li><li>RAG</li><li>pytest</li><li>Hypothesis</li><li>mypy</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED PROJECTS ================= -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="kicker">Featured Projects</span>
+          <h2>Things I've built and shipped</h2>
+          <p class="section__sub">
+            A selection from 74 public repositories — platforms, agents, and infrastructure tooling.
+          </p>
+        </header>
+
+        <div class="projects">
+          <article class="project-card project-card--featured reveal">
+            <div class="project-card__top">
+              <h3 class="project-card__title">UPES-ECS</h3>
+              <span class="chip chip--green">Flagship · HPE Showcase</span>
+            </div>
+            <p class="project-card__desc">
+              Resilient, offline-first campus emergency communication system on an HPE + Juniper
+              networking backbone — designed, deployed, and operated end-to-end. Showcased live to
+              Team HPE.
+            </p>
+            <ul class="tags">
+              <li>Linux</li><li>VoIP / SIP</li><li>High availability</li><li>Juniper</li><li>Asterisk</li>
+            </ul>
+            <div class="project-card__foot">
+              <a class="btn btn--primary btn--sm" href="https://rohanbatrain.github.io/UPES-ECS/">View the HPE showcase →</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card__top">
+              <h3 class="project-card__title">second_brain_database</h3>
+              <span class="project-card__star" aria-label="7 GitHub stars">★ 7</span>
+            </div>
+            <p class="project-card__desc">
+              Multi-service knowledge-management platform: FastAPI + MongoDB + Redis + Qdrant (RAG) +
+              Celery, containerized with Docker Compose &amp; Kubernetes.
+            </p>
+            <ul class="tags">
+              <li>FastAPI</li><li>MongoDB</li><li>Redis</li><li>Qdrant</li><li>Celery</li><li>Docker</li><li>Kubernetes</li>
+            </ul>
+            <div class="project-card__foot">
+              <a class="project-card__link" href="https://github.com/rohanbatrain/second_brain_database" target="_blank" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card__top">
+              <h3 class="project-card__title">autotriage</h3>
+            </div>
+            <p class="project-card__desc">
+              Autonomous vulnerability-triage agent (Claude Agent SDK): scan → LLM triage → tickets /
+              PRs with fail-closed, human-in-the-loop guardrails. mypy-strict, ~89% test coverage.
+            </p>
+            <ul class="tags">
+              <li>Claude Agent SDK</li><li>Python</li><li>mypy</li><li>pytest</li><li>Security</li>
+            </ul>
+            <div class="project-card__foot">
+              <a class="project-card__link" href="https://github.com/rohanbatrain/autotriage" target="_blank" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card__top">
+              <h3 class="project-card__title">proxmox-auto-install-assistant-docker</h3>
+              <span class="project-card__star" aria-label="6 GitHub stars">★ 6</span>
+            </div>
+            <p class="project-card__desc">
+              Dockerizes the Debian-only Proxmox unattended installer so it runs on Arch and any
+              host; profile-driven install ISOs.
+            </p>
+            <ul class="tags">
+              <li>Docker</li><li>Proxmox</li><li>Bash</li><li>Debian</li>
+            </ul>
+            <div class="project-card__foot">
+              <a class="project-card__link" href="https://github.com/rohanbatrain/proxmox-auto-install-assistant-docker" target="_blank" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card__top">
+              <h3 class="project-card__title">hackiitk</h3>
+            </div>
+            <p class="project-card__desc">
+              Offline AI policy-gap analyzer (LangChain / Ollama) with a 702-test framework; NIST CSF
+              / CIS control mapping.
+            </p>
+            <ul class="tags">
+              <li>LangChain</li><li>Ollama</li><li>Python</li><li>pytest</li><li>NIST CSF</li>
+            </ul>
+            <div class="project-card__foot">
+              <a class="project-card__link" href="https://github.com/rohanbatrain/hackiitk" target="_blank" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card__top">
+              <h3 class="project-card__title">GDGoC_UPES</h3>
+              <span class="project-card__star" aria-label="11 GitHub stars">★ 11</span>
+            </div>
+            <p class="project-card__desc">
+              Google Developer Groups on Campus, UPES chapter — community leadership and student
+              developer programs.
+            </p>
+            <ul class="tags">
+              <li>Community</li><li>Leadership</li><li>Events</li>
+            </ul>
+            <div class="project-card__foot">
+              <a class="project-card__link" href="https://github.com/rohanbatrain/GDGoC_UPES" target="_blank" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="projects__more reveal">
+          <a class="btn btn--ghost" href="https://github.com/rohanbatrain" target="_blank" rel="noopener">See all 74 repos on GitHub ↗</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= RELIABILITY IN PRACTICE ================= -->
+    <section class="section section--alt" id="reliability">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="kicker">Reliability in Practice</span>
+          <h2>How I debug when it breaks</h2>
+          <p class="section__sub">
+            Building is table stakes. Operating UPES-ECS — where a dropped call is a safety
+            defect, not a bug — taught me to find the real root cause fast, and under pressure.
+            Three from the logbook.
+          </p>
+        </header>
+
+        <div class="cases">
+          <article class="case reveal">
+            <span class="case__tag">Performance · RCA</span>
+            <h3 class="case__title">“The dashboard is slow.” It wasn't the network.</h3>
+            <dl class="case__rows">
+              <div><dt>Symptom</dt><dd>Every dashboard felt laggy; the reflex was to blame the LAN.</dd></div>
+              <div><dt>Root cause</dt><dd>A single-threaded proxy serialized every request, and an uncached status endpoint spawned ~17 subprocess calls per hit on one vCPU.</dd></div>
+              <div><dt>Fix</dt><dd>A 24-slot worker pool, a short-TTL cache, and concurrent collectors — turning a cache-miss from the sum of all probes into the slowest single one.</dd></div>
+              <div class="case__lesson"><dt>Lesson</dt><dd>Measure before blaming the layer everyone points at.</dd></div>
+            </dl>
+          </article>
+
+          <article class="case reveal">
+            <span class="case__tag">Network / Media · RCA</span>
+            <h3 class="case__title">Every call dropped at ~32 seconds.</h3>
+            <dl class="case__rows">
+              <div><dt>Symptom</dt><dd>Touch-tone input broke and every call died on a fixed 32-second timer.</dd></div>
+              <div><dt>Root cause</dt><dd>An empty external media address — the server advertised its audio stream on an address unreachable across NAT.</dd></div>
+              <div><dt>Fix</dt><dd>Set the correct LAN media address and reload signaling; input and call stability returned.</dd></div>
+              <div class="case__lesson"><dt>Lesson</dt><dd>“Up, but calls die on a clock” is a media/NAT signature — not a random failure.</dd></div>
+            </dl>
+          </article>
+
+          <article class="case reveal">
+            <span class="case__tag">Protocol / Lifecycle · RCA</span>
+            <h3 class="case__title">Calls that never hung up.</h3>
+            <dl class="case__rows">
+              <div><dt>Symptom</dt><dd>Over a hundred calls sat “active” forever, inflating every metric.</dd></div>
+              <div><dt>Root cause</dt><dd>When a caller's hang-up was lost, nothing tore the channel down — media-timeout was off and the menu loops by design. A zero receive-count was the tell.</dd></div>
+              <div><dt>Fix</dt><dd>A media-inactivity timeout so dead channels reap themselves.</dd></div>
+              <div class="case__lesson"><dt>Lesson</dt><dd>Design for the lost-signal case — “no teardown path” is a slow leak.</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="section" id="experience">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="kicker">Experience</span>
+          <h2>Where I've worked</h2>
+        </header>
+
+        <div class="exp reveal">
+          <ol class="exp__list">
+            <li class="exp__item">
+              <div class="exp__when">Nov 2025 – Jul 2026</div>
+              <div class="exp__body">
+                <h4>Platform Engineering Intern <span class="exp__co">· Eve (early-stage startup)</span></h4>
+                <p>
+                  Grew from backend engineering into platform-wide ownership: multi-tenant service
+                  architecture, an API gateway as the central routing &amp; auth layer,
+                  data-ingestion infrastructure, and <strong>Kubernetes / EKS</strong> deployments
+                  with CI/CD, <strong>Prometheus</strong> observability, and QA automation.
+                </p>
+                <ul class="tags">
+                  <li>Kubernetes / EKS</li><li>API Gateway</li><li>CI/CD</li><li>Prometheus</li><li>Multi-tenant</li><li>FastAPI</li>
+                </ul>
+              </div>
+            </li>
+            <li class="exp__item">
+              <div class="exp__when">2026 – present</div>
+              <div class="exp__body">
+                <h4>Architect &amp; Operator <span class="exp__co">· UPES-ECS</span></h4>
+                <p>
+                  Designed and operate a resilient, offline-first emergency communication system on
+                  an enterprise networking backbone — from provisioning and high-availability design
+                  to monitoring, incident response, and runbooks.
+                </p>
+                <ul class="tags">
+                  <li>Linux</li><li>VoIP / SIP</li><li>High availability</li><li>Networking</li>
+                </ul>
+              </div>
+            </li>
+            <li class="exp__item">
+              <div class="exp__when">Campus</div>
+              <div class="exp__body">
+                <h4>Community Lead <span class="exp__co">· Google Developer Groups on Campus, UPES</span></h4>
+                <p>Organising and building a developer community on campus.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= UPES-ECS × HPE HIGHLIGHT BAND ================= -->
+    <section class="section">
+      <div class="container">
+        <div class="band reveal">
+          <div class="band__glow" aria-hidden="true"></div>
+          <div class="band__content">
+            <span class="kicker">UPES-ECS × HPE</span>
+            <h2>Showcased to Team HPE, July 2026</h2>
+            <p>
+              UPES-ECS — a resilient, offline-first campus emergency communication system on an
+              HPE + Juniper networking backbone — was presented live to Team HPE during their visit
+              to UPES. Full call flow, operations dashboard, and offline-first architecture.
+            </p>
+            <a class="btn btn--primary" href="https://rohanbatrain.github.io/UPES-ECS/">Explore the collaboration →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="section section--alt" id="contact">
+      <div class="container contact">
+        <div class="contact__card reveal">
+          <span class="kicker">Contact</span>
+          <h2>Looking for a platform team to grow with.</h2>
+          <p>
+            Open to full-time <strong>Platform · SRE · DevOps</strong> roles from 2026 — based in
+            India and happy to relocate to Bengaluru. If you're hiring for infrastructure and
+            reliability, I'd love to talk.
+          </p>
+          <div class="contact__actions">
+            <a class="btn btn--primary" href="mailto:contact@rohanbatra.in">✉ contact@rohanbatra.in</a>
+            <a class="btn btn--ghost" href="Rohan-Batra-Resume.pdf" download>Résumé ↓</a>
+            <a class="btn btn--ghost" href="https://github.com/rohanbatrain" target="_blank" rel="noopener">GitHub · @rohanbatrain ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__tag"><span class="pulse-dot" aria-hidden="true"></span> Rohan Batra · @rohanbatrain</p>
+      <p class="footer__meta">© <span id="year">2026</span> Rohan Batra · @rohanbatrain</p>
+      <p class="footer__disclaimer">
+        HPE and Juniper are trademarks of their respective owners.
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

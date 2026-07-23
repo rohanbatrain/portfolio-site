@@ -1,0 +1,241 @@
+/* =========================================================
+   Portfolio — Rohan Batra (@rohanbatrain)
+   Personal developer portfolio components.
+   Extends assets/css/styles.css (tokens + shared classes).
+   Load order: styles.css THEN portfolio.css.
+   ========================================================= */
+
+/* ---------- Hero additions ---------- */
+.hero__tagline {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: clamp(1.2rem, 3.4vw, 1.95rem);
+  line-height: 1.2;
+  color: var(--text);
+  max-width: 720px;
+  margin: 0.35rem auto 0;
+}
+
+/* ---------- About / Bio ---------- */
+.bio {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: clamp(1.6rem, 4vw, 3rem);
+  align-items: start;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+.bio__main p { color: var(--text-muted); }
+.bio__main p:last-child { margin-bottom: 0; }
+.bio__card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+.bio__facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; }
+.bio__facts li {
+  display: grid;
+  gap: 0.18rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+.bio__facts li:last-child { padding-bottom: 0; border-bottom: 0; }
+.bio__facts span {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.bio__facts strong { color: var(--text); font-weight: 600; font-size: 0.98rem; }
+
+/* ---------- Skills ---------- */
+.skillset {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+}
+.skillset__group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem;
+  transition: transform 0.3s var(--ease), border-color 0.3s;
+}
+.skillset__group:hover { transform: translateY(-4px); border-color: var(--green); }
+.skillset__title {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.05rem;
+  margin: 0 0 1.05rem;
+}
+.skillset__ic {
+  flex: none;
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  font-size: 1.2rem;
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--green) 12%, transparent);
+  border: 1px solid var(--border);
+}
+.skillset__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.skillset__list li {
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.36em 0.78em;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+/* ---------- Featured projects ---------- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+}
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
+}
+.project-card:hover { transform: translateY(-4px); border-color: var(--green); box-shadow: var(--shadow); }
+.project-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+.project-card__title {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.project-card__star {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--amber);
+  white-space: nowrap;
+}
+.project-card__desc { color: var(--text-muted); font-size: 0.94rem; margin: 0; }
+.project-card .tags { margin: 0.1rem 0 0; }
+.project-card__foot { margin-top: auto; padding-top: 0.6rem; }
+.project-card__link {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--green);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: gap 0.2s var(--ease);
+}
+.project-card__link:hover { gap: 0.55rem; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Featured card — UPES-ECS × HPE */
+.project-card--featured {
+  border-color: color-mix(in srgb, var(--green) 42%, var(--border));
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--green) 8%, transparent), transparent 55%),
+    var(--surface);
+}
+
+.projects__more { text-align: center; margin: 2.4rem 0 0; }
+
+/* ---------- UPES-ECS × HPE highlight band ---------- */
+.band {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid color-mix(in srgb, var(--green) 34%, var(--border));
+  background:
+    radial-gradient(130% 150% at 0% 0%, color-mix(in srgb, var(--green) 15%, transparent), transparent 55%),
+    var(--surface);
+  box-shadow: var(--shadow);
+  padding: clamp(2.1rem, 5.5vw, 3.4rem);
+  text-align: center;
+}
+.band::before {
+  content: "";
+  position: absolute; inset: 0 0 auto 0; height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--cyan));
+}
+.band__glow {
+  position: absolute; z-index: 0;
+  top: -45%; right: -8%;
+  width: 440px; height: 340px;
+  background: radial-gradient(circle, var(--green-glow), transparent 65%);
+  filter: blur(34px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.band__content { position: relative; z-index: 1; max-width: 660px; margin-inline: auto; }
+.band__content h2 { margin-bottom: 0.7rem; }
+.band__content p { color: var(--text-muted); margin-bottom: 1.6rem; }
+
+/* ---------- Reliability case studies ---------- */
+.cases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+}
+.case {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
+}
+.case::before {
+  content: "";
+  position: absolute; inset: 0 0 auto 0; height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--cyan));
+  opacity: 0.85;
+}
+.case:hover { transform: translateY(-4px); border-color: var(--green); box-shadow: var(--shadow); }
+.case__tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.case__title { font-size: 1.06rem; line-height: 1.28; margin: 0.55rem 0 1.1rem; }
+.case__rows { margin: 0; display: grid; gap: 0.85rem; }
+.case__rows > div { display: grid; gap: 0.18rem; }
+.case__rows dt {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.case__rows dd { margin: 0; color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+.case__lesson dd { color: var(--text); font-weight: 500; }
+
+/* ---------- Portfolio-scoped tweaks ---------- */
+#experience .exp { max-width: 860px; margin-inline: auto; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .skillset, .projects, .cases { grid-template-columns: repeat(2, 1fr); }
+  .bio { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .skillset, .projects, .cases { grid-template-columns: 1fr; }
+}

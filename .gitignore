@@ -1,0 +1,16 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/
+
+# Local media (keep large binaries out of git; host on Google Drive)
+assets/img/*.mp4
+assets/img/*.mov
+assets/img/*.heic
+
+# Never commit anything internal
+/internal/
+*.internal.md

@@ -1,8 +1,15 @@
 /* =========================================================
    Portfolio — Rohan Batra (@rohanbatrain)
-   Personal developer portfolio components.
-   Extends assets/css/styles.css (tokens + shared classes).
+   HPE enterprise design language — portfolio components.
+   Extends assets/css/styles.css (HPE tokens + shared classes).
    Load order: styles.css THEN portfolio.css.
+
+   Motif: the "HPE element" = a thin, SHARP-cornered green
+   rectangle. It appears as a 3px green accent bar on the
+   showcase cards (featured projects, case studies) and as a
+   green spine on the bio card. Green is a signature accent,
+   never a wash — whitespace, clear hierarchy, and restrained
+   green over decoration. Cards keep their --radius corners.
    ========================================================= */
 
 /* ---------- Hero additions ---------- */
@@ -10,42 +17,56 @@
   font-family: var(--font-head);
   font-weight: 600;
   font-size: clamp(1.2rem, 3.4vw, 1.95rem);
-  line-height: 1.2;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
   color: var(--text);
-  max-width: 720px;
-  margin: 0.35rem auto 0;
+  max-width: 760px;
+  margin: 0.5rem auto 0;
+  text-wrap: balance;
 }
 
 /* ---------- About / Bio ---------- */
 .bio {
   display: grid;
   grid-template-columns: 1.55fr 1fr;
-  gap: clamp(1.6rem, 4vw, 3rem);
+  gap: clamp(1.8rem, 4.5vw, 3.25rem);
   align-items: start;
-  max-width: 1000px;
+  max-width: 1040px;
   margin-inline: auto;
 }
 .bio__main p { color: var(--text-muted); }
 .bio__main p:last-child { margin-bottom: 0; }
+
 .bio__card {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.4rem 1.5rem;
+  padding: 1.6rem 1.7rem;
   box-shadow: var(--shadow);
 }
-.bio__facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; }
+/* HPE "element": a small sharp green rectangle on the left spine */
+.bio__card::before {
+  content: "";
+  position: absolute;
+  top: 1.5rem;
+  bottom: 1.5rem;
+  left: 0;
+  width: 3px;
+  background: var(--green);
+}
+.bio__facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
 .bio__facts li {
   display: grid;
-  gap: 0.18rem;
-  padding-bottom: 0.9rem;
+  gap: 0.2rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid var(--border);
 }
 .bio__facts li:last-child { padding-bottom: 0; border-bottom: 0; }
 .bio__facts span {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-dim);
 }
@@ -55,63 +76,84 @@
 .skillset {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.1rem;
+  gap: clamp(1rem, 2.2vw, 1.5rem);
 }
 .skillset__group {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.4rem 1.5rem;
-  transition: transform 0.3s var(--ease), border-color 0.3s;
+  padding: 1.6rem 1.6rem 1.7rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
-.skillset__group:hover { transform: translateY(-4px); border-color: var(--green); }
+.skillset__group:hover {
+  transform: translateY(-4px);
+  border-color: var(--green);
+  box-shadow: var(--shadow-green);
+}
 .skillset__title {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: 0.75rem;
   font-size: 1.05rem;
-  margin: 0 0 1.05rem;
+  margin: 0 0 1.15rem;
 }
+/* Icon tile — a soft green-tinted square, sharp-ish (radius-sm) */
 .skillset__ic {
   flex: none;
-  width: 40px; height: 40px;
+  width: 42px; height: 42px;
   display: grid; place-items: center;
   font-size: 1.2rem;
-  border-radius: 11px;
-  background: color-mix(in srgb, var(--green) 12%, transparent);
-  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--green) 12%, var(--surface-2));
+  border: 1px solid color-mix(in srgb, var(--green) 22%, var(--border));
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
 }
-.skillset__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.skillset__group:hover .skillset__ic {
+  border-color: color-mix(in srgb, var(--green) 40%, var(--border));
+  background: color-mix(in srgb, var(--green) 16%, var(--surface-2));
+}
+.skillset__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .skillset__list li {
   font-size: 0.82rem;
   font-weight: 500;
-  padding: 0.36em 0.78em;
+  padding: 0.4em 0.85em;
   border-radius: 999px;
   background: var(--surface-2);
   border: 1px solid var(--border);
   color: var(--text-muted);
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+.skillset__group:hover .skillset__list li {
+  border-color: color-mix(in srgb, var(--green) 20%, var(--border));
 }
 
 /* ---------- Featured projects ---------- */
 .projects {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.1rem;
+  gap: clamp(1rem, 2.2vw, 1.5rem);
 }
 .project-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.5rem;
-  transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
+  padding: 1.6rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
-.project-card:hover { transform: translateY(-4px); border-color: var(--green); box-shadow: var(--shadow); }
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--green);
+  box-shadow: var(--shadow-green);
+}
 .project-card__top {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 0.8rem;
 }
@@ -132,7 +174,7 @@
 }
 .project-card__desc { color: var(--text-muted); font-size: 0.94rem; margin: 0; }
 .project-card .tags { margin: 0.1rem 0 0; }
-.project-card__foot { margin-top: auto; padding-top: 0.6rem; }
+.project-card__foot { margin-top: auto; padding-top: 0.7rem; }
 .project-card__link {
   font-family: var(--font-mono);
   font-size: 0.85rem;
@@ -141,37 +183,56 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  transition: gap 0.2s var(--ease);
+  transition: gap 0.2s var(--ease), color 0.2s var(--ease);
 }
-.project-card__link:hover { gap: 0.55rem; text-decoration: underline; text-underline-offset: 3px; }
+.project-card__link:hover {
+  gap: 0.55rem;
+  color: var(--green-600);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
-/* Featured card — UPES-ECS × HPE */
+/* Featured card — UPES-ECS × HPE flagship: green "element" bar,
+   faint green tint + green shadow to read as brand/elevated. */
 .project-card--featured {
-  border-color: color-mix(in srgb, var(--green) 42%, var(--border));
+  border-color: color-mix(in srgb, var(--green) 38%, var(--border));
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--green) 8%, transparent), transparent 55%),
+    linear-gradient(180deg, color-mix(in srgb, var(--green) 7%, transparent), transparent 50%),
     var(--surface);
+  box-shadow: var(--shadow-green);
 }
+/* 3px sharp green rectangle, inset from the rounded corners */
+.project-card--featured::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--radius);
+  right: var(--radius);
+  height: 3px;
+  background: var(--green);
+}
+.project-card--featured:hover { border-color: var(--green); }
 
-.projects__more { text-align: center; margin: 2.4rem 0 0; }
+.projects__more { text-align: center; margin: 2.6rem 0 0; }
 
 /* ---------- UPES-ECS × HPE highlight band ---------- */
 .band {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius);
-  border: 1px solid color-mix(in srgb, var(--green) 34%, var(--border));
+  border: 1px solid color-mix(in srgb, var(--green) 30%, var(--border));
   background:
-    radial-gradient(130% 150% at 0% 0%, color-mix(in srgb, var(--green) 15%, transparent), transparent 55%),
+    radial-gradient(130% 150% at 0% 0%, color-mix(in srgb, var(--green) 13%, transparent), transparent 55%),
     var(--surface);
-  box-shadow: var(--shadow);
-  padding: clamp(2.1rem, 5.5vw, 3.4rem);
+  box-shadow: var(--shadow-green);
+  padding: clamp(2.2rem, 5.5vw, 3.5rem);
   text-align: center;
 }
+/* Full-bleed green accent stripe across the top of the panel */
 .band::before {
   content: "";
   position: absolute; inset: 0 0 auto 0; height: 3px;
-  background: linear-gradient(90deg, var(--green), var(--cyan));
+  background: var(--green);
 }
 .band__glow {
   position: absolute; z-index: 0;
@@ -182,42 +243,56 @@
   opacity: 0.55;
   pointer-events: none;
 }
-.band__content { position: relative; z-index: 1; max-width: 660px; margin-inline: auto; }
+.band__content { position: relative; z-index: 1; max-width: 680px; margin-inline: auto; }
 .band__content h2 { margin-bottom: 0.7rem; }
-.band__content p { color: var(--text-muted); margin-bottom: 1.6rem; }
+.band__content p { color: var(--text-muted); margin-bottom: 1.7rem; }
 
 /* ---------- Reliability case studies ---------- */
 .cases {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.1rem;
+  gap: clamp(1rem, 2.2vw, 1.5rem);
 }
 .case {
   position: relative;
-  overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.5rem;
-  transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s;
+  padding: 1.6rem 1.6rem 1.7rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
+/* HPE "element": a sharp 3px green rectangle inset along the top */
 .case::before {
   content: "";
-  position: absolute; inset: 0 0 auto 0; height: 3px;
-  background: linear-gradient(90deg, var(--green), var(--cyan));
-  opacity: 0.85;
+  position: absolute;
+  top: 0;
+  left: var(--radius);
+  right: var(--radius);
+  height: 3px;
+  background: var(--green);
 }
-.case:hover { transform: translateY(-4px); border-color: var(--green); box-shadow: var(--shadow); }
+.case:hover {
+  transform: translateY(-4px);
+  border-color: var(--green);
+  box-shadow: var(--shadow-green);
+}
 .case__tag {
+  display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--green);
 }
-.case__title { font-size: 1.06rem; line-height: 1.28; margin: 0.55rem 0 1.1rem; }
-.case__rows { margin: 0; display: grid; gap: 0.85rem; }
-.case__rows > div { display: grid; gap: 0.18rem; }
+.case__title {
+  font-size: 1.06rem;
+  line-height: 1.3;
+  margin: 0.55rem 0 1.15rem;
+  text-wrap: balance;
+}
+.case__rows { margin: 0; display: grid; gap: 0.9rem; }
+.case__rows > div { display: grid; gap: 0.2rem; }
 .case__rows dt {
   font-family: var(--font-mono);
   font-size: 0.66rem;
@@ -225,14 +300,16 @@
   text-transform: uppercase;
   color: var(--text-dim);
 }
-.case__rows dd { margin: 0; color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+.case__rows dd { margin: 0; color: var(--text-muted); font-size: 0.9rem; line-height: 1.55; }
+/* Lesson row — quietly emphasized: green key, solid value */
+.case__lesson dt { color: var(--green); }
 .case__lesson dd { color: var(--text); font-weight: 500; }
 
 /* ---------- HPE visit gallery ---------- */
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.9rem;
+  gap: clamp(0.75rem, 1.6vw, 1.1rem);
 }
 .gallery__item {
   display: block;
@@ -241,6 +318,13 @@
   border: 1px solid var(--border);
   background: var(--surface-2);
   aspect-ratio: 4 / 3;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.gallery__item:hover {
+  transform: translateY(-3px);
+  border-color: var(--green);
+  box-shadow: var(--shadow-green);
 }
 .gallery__item img {
   width: 100%;
@@ -250,12 +334,12 @@
   transition: transform 0.5s var(--ease);
 }
 .gallery__item:hover img { transform: scale(1.05); }
-.gallery__note { text-align: center; color: var(--text-dim); font-size: 0.85rem; margin-top: 1.1rem; }
+.gallery__note { text-align: center; color: var(--text-dim); font-size: 0.85rem; margin-top: 1.2rem; }
 @media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 440px) { .gallery { grid-template-columns: 1fr; } }
 
 /* ---------- Portfolio-scoped tweaks ---------- */
-#experience .exp { max-width: 860px; margin-inline: auto; }
+#experience .exp { max-width: 880px; margin-inline: auto; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {

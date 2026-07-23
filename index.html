@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rohan Batra — Software Engineer · Cloud, Backend &amp; Security</title>
-  <meta name="description" content="Rohan Batra (@rohanbatrain) — CS undergrad (UPES '27) and Software Engineer across full-stack development, cloud infrastructure, and applied cybersecurity. HACKIITK 2026 finalist at IIT Kanpur. Currently a Software Engineer Intern at Techymonks." />
+  <title>Rohan Batra — Platform &amp; Reliability Engineer</title>
+  <meta name="description" content="Rohan Batra (@rohanbatrain) — Platform &amp; Reliability Engineer. I build and operate systems that stay up: Linux, containers, backend services, and enterprise networking." />
   <meta name="author" content="Rohan Batra" />
   <meta name="theme-color" content="#0b0f14" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="profile" />
-  <meta property="og:title" content="Rohan Batra — Software Engineer · Cloud, Backend & Security" />
-  <meta property="og:description" content="Full-stack, cloud infrastructure, and applied cybersecurity. HACKIITK 2026 finalist. Currently SWE Intern at Techymonks." />
+  <meta property="og:title" content="Rohan Batra — Platform &amp; Reliability Engineer" />
+  <meta property="og:description" content="I build and operate systems that stay up — Linux, containers, backend, and enterprise networking." />
   <meta property="og:url" content="https://hpe.rohanbatra.in/" />
   <meta property="og:site_name" content="Rohan Batra" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2301a982'/><text x='50' y='73' font-size='56' font-family='monospace' font-weight='700' text-anchor='middle' fill='%23042018'>RB</text></svg>" />
 
+  <!-- Fonts (progressive enhancement; strong system fallback in CSS) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
@@ -40,7 +41,7 @@
       <nav class="nav__links" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
-        <a href="#debugging">Debugging</a>
+        <a href="#reliability">Reliability</a>
         <a href="#experience">Experience</a>
         <a href="https://rohanbatrain.github.io/UPES-ECS/">UPES-ECS&nbsp;×&nbsp;HPE</a>
         <a href="#contact" class="nav__cta">Contact</a>
@@ -63,17 +64,17 @@
       <div class="container hero__inner">
         <p class="hero__eyebrow reveal">
           <span class="pulse-dot" aria-hidden="true"></span>
-          Software Engineer · Cloud · Backend · Security · UPES&nbsp;'27
+          Platform &amp; Reliability Engineer · Open to full-time roles · 2026
         </p>
         <h1 class="hero__title reveal">Rohan Batra</h1>
         <p class="hero__tagline reveal">
-          I build secure, cloud-native software — <span class="grad-text">end to end.</span>
+          I build and operate systems that <span class="grad-text">stay up</span> — and when they don't, I find out why.
         </p>
         <p class="hero__lede reveal">
-          Computer-Science undergrad at UPES (Class of 2027) with hands-on experience across
-          <strong>full-stack development</strong>, <strong>cloud infrastructure</strong>, and
-          <strong>applied cybersecurity</strong>. Currently a Software Engineer Intern at Techymonks,
-          and a <strong>HACKIITK 2026 finalist</strong> at IIT Kanpur — top ~0.4% of 1,300+ teams.
+          Early-career engineer who already ships and operates real infrastructure — a
+          multi-tenant platform on <strong>Kubernetes / EKS</strong> in industry, and a
+          <strong>production system I run</strong> on enterprise networking. I'm looking for a
+          platform / SRE team to do this at scale.
         </p>
         <div class="hero__actions reveal">
           <a class="btn btn--primary" href="#projects">View my work</a>
@@ -81,10 +82,10 @@
           <a class="btn btn--ghost" href="https://github.com/rohanbatrain" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
         <dl class="hero__stats reveal">
-          <div><dt>Top&nbsp;~0.4%</dt><dd>HACKIITK '26 finalist · IIT Kanpur</dd></div>
-          <div><dt>SWE&nbsp;Intern</dt><dd>Techymonks · Bangalore (current)</dd></div>
-          <div><dt>AWS&nbsp;·&nbsp;Docker</dt><dd>Cloud infra &amp; CI/CD</dd></div>
-          <div><dt>OWASP</dt><dd>Security audits · SAST/DAST</dd></div>
+          <div><dt>8&nbsp;mo</dt><dd>Platform engineering in industry (Eve)</dd></div>
+          <div><dt>K8s&nbsp;+&nbsp;EKS</dt><dd>Shipped to production</dd></div>
+          <div><dt>Always-on</dt><dd>Production system I operate</dd></div>
+          <div><dt>HPE&nbsp;+&nbsp;Juniper</dt><dd>Hands-on enterprise networking</dd></div>
         </dl>
       </div>
       <a href="#about" class="hero__scroll" aria-label="Scroll to content">↓</a>
@@ -95,27 +96,27 @@
       <div class="container">
         <header class="section__head reveal">
           <span class="kicker">Where I Fit</span>
-          <h2>Cloud, security, and the network under it</h2>
+          <h2>Built for enterprise infrastructure</h2>
           <p class="section__sub">
-            My work maps directly to how enterprise software is built and secured today — in the
-            cloud, hardened through the pipeline, over real networking infrastructure.
+            The work I already do maps to how large infrastructure actually runs — on-prem and
+            hybrid, over enterprise networks, and operated for uptime.
           </p>
         </header>
         <div class="feature-grid">
           <article class="feature reveal">
-            <div class="feature__icon" aria-hidden="true">☁️</div>
-            <h3>Cloud-native &amp; CI/CD</h3>
-            <p>I build, containerize, and ship services on AWS (EC2, ECS, S3) with Docker and GitHub Actions pipelines — automated build, test, and deploy.</p>
-          </article>
-          <article class="feature reveal">
-            <div class="feature__icon" aria-hidden="true">🛡️</div>
-            <h3>Security in the SDLC</h3>
-            <p>OWASP Top 10 audits, SAST/DAST, and security gates wired into CI/CD, plus OAuth2/RBAC. HACKIITK Gap Hunter finalist for an AI policy-gap analyzer.</p>
+            <div class="feature__icon" aria-hidden="true">🏢</div>
+            <h3>Runs on-prem, not just the cloud</h3>
+            <p>I build systems that live in a data center or at the edge — reproducible provisioning, containers, and high availability, air-gapped when it has to be.</p>
           </article>
           <article class="feature reveal">
             <div class="feature__icon" aria-hidden="true">🌐</div>
-            <h3>Enterprise networking, hands-on</h3>
-            <p>I built UPES-ECS on Juniper SRX, EX, and Mist — now part of HPE Networking — so I've configured the fabric, not just consumed it.</p>
+            <h3>Speaks enterprise networking</h3>
+            <p>Hands-on with Juniper SRX, EX, and Mist — now part of HPE Networking — and comfortable at the platform and service layer above it.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="feature__icon" aria-hidden="true">📈</div>
+            <h3>Operated for uptime</h3>
+            <p>Health checks, observability, incident root-cause analysis, and runbooks. I treat reliability as the job, not an afterthought.</p>
           </article>
         </div>
       </div>
@@ -126,30 +127,31 @@
       <div class="container">
         <header class="section__head reveal">
           <span class="kicker">About</span>
-          <h2>Full-stack, cloud, and security</h2>
+          <h2>Happiest close to the infrastructure</h2>
         </header>
 
         <div class="bio reveal">
           <div class="bio__main">
             <p>
-              I'm a Computer-Science undergrad at UPES (Class of 2027) who likes shipping
-              production-grade systems end to end — writing the backend, deploying it to the cloud,
-              wiring up CI/CD, and auditing it for security along the way. My work spans full-stack
-              development, cloud infrastructure, and applied cybersecurity.
+              I'm an early-career platform &amp; reliability engineer, finishing my degree at UPES.
+              I like working end-to-end: writing the backend service, containerizing it, wiring up
+              CI/CD, and then owning it in production. The part that holds my attention is the
+              operations side — health checks, deploys, observability, and the unglamorous
+              reliability work that keeps a system up.
             </p>
             <p>
-              That range comes from doing, not just coursework: a Software Engineer internship
-              building FastAPI services on AWS, a HACKIITK finalist project at IIT Kanpur, leading
-              the technical wing of my campus developer community, and years in the Linux community
-              before that.
+              That started on my own hardware — Linux compiled from source, Proxmox, a home lab I
+              actually run — and now extends from a multi-tenant platform at an early-stage startup
+              to a resilient, offline-first emergency communication system I designed and operate on
+              enterprise networking gear.
             </p>
           </div>
           <aside class="bio__card" aria-label="At a glance">
             <ul class="bio__facts">
-              <li><span>Open to</span><strong>Internships now · new-grad 2027</strong></li>
+              <li><span>Open to</span><strong>Platform · SRE · DevOps roles (2026)</strong></li>
               <li><span>Based in</span><strong>India · open to Bengaluru / relocation</strong></li>
-              <li><span>Currently</span><strong>SWE Intern @ Techymonks</strong></li>
-              <li><span>Focus</span><strong>Cloud · Backend · Security</strong></li>
+              <li><span>Experience</span><strong>Platform engineering @ Eve · 8 months</strong></li>
+              <li><span>Focus</span><strong>Linux · Kubernetes · Reliability</strong></li>
               <li><span>Everywhere</span><strong>@rohanbatrain</strong></li>
             </ul>
           </aside>
@@ -164,43 +166,51 @@
           <span class="kicker">Skills</span>
           <h2>The stack I reach for</h2>
           <p class="section__sub">
-            Weighted toward cloud, backend, and security — with real breadth across the SDLC.
+            Weighted toward the systems and platform layer, with real breadth across backend,
+            reliability, and AI tooling.
           </p>
         </header>
 
         <div class="skillset">
           <article class="skillset__group reveal">
-            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">☁️</span> Cloud, DevOps &amp; Automation</h3>
+            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">🐧</span> Linux &amp; Systems</h3>
             <ul class="skillset__list">
-              <li>AWS (EC2 · ECS · S3)</li><li>Google Cloud</li><li>Docker</li><li>GitHub Actions</li><li>CI/CD</li><li>Linux CLI</li><li>Automation</li>
+              <li>Linux</li><li>systemd</li><li>Nix</li><li>Bash</li><li>Compiling from source</li>
             </ul>
           </article>
 
           <article class="skillset__group reveal">
-            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">⚙️</span> Software Engineering</h3>
+            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">📦</span> Containers &amp; Cloud</h3>
             <ul class="skillset__list">
-              <li>Python</li><li>C/C++</li><li>JavaScript</li><li>SQL</li><li>FastAPI</li><li>REST APIs</li><li>Git</li>
+              <li>Docker</li><li>Kubernetes / EKS</li><li>Proxmox</li><li>CI/CD (GitHub Actions)</li>
             </ul>
           </article>
 
           <article class="skillset__group reveal">
-            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">🛡️</span> Security &amp; Accessibility</h3>
+            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">⚙️</span> Backend</h3>
             <ul class="skillset__list">
-              <li>OAuth2</li><li>RBAC</li><li>OWASP Top 10</li><li>SAST/DAST</li><li>WCAG 2.0</li>
+              <li>Python</li><li>FastAPI</li><li>MongoDB</li><li>Redis</li><li>Qdrant</li><li>Celery</li><li>REST / OpenAPI</li>
             </ul>
           </article>
 
           <article class="skillset__group reveal">
-            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">🤖</span> AI &amp; Tooling</h3>
+            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">📈</span> Reliability &amp; Observability</h3>
             <ul class="skillset__list">
-              <li>LangChain</li><li>Pydantic</li><li>Ollama</li><li>Redis</li>
+              <li>Prometheus</li><li>Health checks</li><li>HA (keepalived)</li><li>Load testing</li>
             </ul>
           </article>
 
           <article class="skillset__group reveal">
-            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">📱</span> Web &amp; Mobile</h3>
+            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">🌐</span> Networking</h3>
             <ul class="skillset__list">
-              <li>Hugo</li><li>Flutter</li><li>Android SDK</li><li>HTML</li><li>CSS</li><li>Responsive Design</li>
+              <li>TCP/IP</li><li>DNS</li><li>VLAN / QoS</li><li>Juniper (SRX/EX/Mist)</li><li>Tailscale</li>
+            </ul>
+          </article>
+
+          <article class="skillset__group reveal">
+            <h3 class="skillset__title"><span class="skillset__ic" aria-hidden="true">🤖</span> AI &amp; Testing</h3>
+            <ul class="skillset__list">
+              <li>LLM agents (Claude Agent SDK)</li><li>LangChain</li><li>RAG</li><li>pytest</li><li>Hypothesis</li><li>mypy</li>
             </ul>
           </article>
         </div>
@@ -214,7 +224,7 @@
           <span class="kicker">Featured Projects</span>
           <h2>Things I've built and shipped</h2>
           <p class="section__sub">
-            A selection from 74 public repositories — emergency systems, security tooling, backends, and infrastructure automation.
+            A selection from 74 public repositories — platforms, agents, and infrastructure tooling.
           </p>
         </header>
 
@@ -237,35 +247,17 @@
             </div>
           </article>
 
-          <article class="project-card project-card--featured reveal">
-            <div class="project-card__top">
-              <h3 class="project-card__title">Gap Hunter</h3>
-              <span class="chip chip--green">HACKIITK '26 Finalist</span>
-            </div>
-            <p class="project-card__desc">
-              Offline, AI-powered policy gap analyzer mapping security policies to NIST CSF 2.0 &amp;
-              CIS. Multi-stage LangChain pipeline (hybrid retrieval + reranking), Electron desktop,
-              702-test suite (97.7% pass). Top ~0.4% of 1,300+ teams at IIT Kanpur.
-            </p>
-            <ul class="tags">
-              <li>Python</li><li>LangChain</li><li>Ollama</li><li>Pydantic</li><li>Electron</li><li>GitHub Actions</li>
-            </ul>
-            <div class="project-card__foot">
-              <a class="project-card__link" href="https://hackiitk.hunterz.in/" target="_blank" rel="noopener">hackiitk.hunterz.in ↗</a>
-            </div>
-          </article>
-
           <article class="project-card reveal">
             <div class="project-card__top">
               <h3 class="project-card__title">second_brain_database</h3>
               <span class="project-card__star" aria-label="7 GitHub stars">★ 7</span>
             </div>
             <p class="project-card__desc">
-              Containerized personal-knowledge backend: secure REST APIs with OAuth2 + RBAC, Redis
-              caching, and optimized schemas — Dockerized for consistent CI/CD deployments.
+              Multi-service knowledge-management platform: FastAPI + MongoDB + Redis + Qdrant (RAG) +
+              Celery, containerized with Docker Compose &amp; Kubernetes.
             </p>
             <ul class="tags">
-              <li>Python</li><li>FastAPI</li><li>Redis</li><li>OAuth2</li><li>RBAC</li><li>Docker</li>
+              <li>FastAPI</li><li>MongoDB</li><li>Redis</li><li>Qdrant</li><li>Celery</li><li>Docker</li><li>Kubernetes</li>
             </ul>
             <div class="project-card__foot">
               <a class="project-card__link" href="https://github.com/rohanbatrain/second_brain_database" target="_blank" rel="noopener">View on GitHub ↗</a>
@@ -274,15 +266,31 @@
 
           <article class="project-card reveal">
             <div class="project-card__top">
-              <h3 class="project-card__title">proxmox-auto-install-assistant</h3>
+              <h3 class="project-card__title">autotriage</h3>
+            </div>
+            <p class="project-card__desc">
+              Autonomous vulnerability-triage agent (Claude Agent SDK): scan → LLM triage → tickets /
+              PRs with fail-closed, human-in-the-loop guardrails. mypy-strict, ~89% test coverage.
+            </p>
+            <ul class="tags">
+              <li>Claude Agent SDK</li><li>Python</li><li>mypy</li><li>pytest</li><li>Security</li>
+            </ul>
+            <div class="project-card__foot">
+              <a class="project-card__link" href="https://github.com/rohanbatrain/autotriage" target="_blank" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card__top">
+              <h3 class="project-card__title">proxmox-auto-install-assistant-docker</h3>
               <span class="project-card__star" aria-label="6 GitHub stars">★ 6</span>
             </div>
             <p class="project-card__desc">
-              Scripted, unattended Proxmox provisioning that cut setup time by ~80%; Dockerized so
-              the Debian-only installer runs on Arch and other non-Debian hosts.
+              Dockerizes the Debian-only Proxmox unattended installer so it runs on Arch and any
+              host; profile-driven install ISOs.
             </p>
             <ul class="tags">
-              <li>Docker</li><li>Proxmox</li><li>Bash</li><li>Automation</li>
+              <li>Docker</li><li>Proxmox</li><li>Bash</li><li>Debian</li>
             </ul>
             <div class="project-card__foot">
               <a class="project-card__link" href="https://github.com/rohanbatrain/proxmox-auto-install-assistant-docker" target="_blank" rel="noopener">View on GitHub ↗</a>
@@ -291,33 +299,34 @@
 
           <article class="project-card reveal">
             <div class="project-card__top">
-              <h3 class="project-card__title">n8n-nodes — Second Brain</h3>
+              <h3 class="project-card__title">hackiitk</h3>
             </div>
             <p class="project-card__desc">
-              Custom n8n nodes exposing Second Brain Database APIs as reusable workflow steps —
-              enabling end-to-end automation pipelines across backend services and orchestration.
+              Offline AI policy-gap analyzer (LangChain / Ollama) with a 702-test framework; NIST CSF
+              / CIS control mapping.
             </p>
             <ul class="tags">
-              <li>JavaScript</li><li>n8n</li><li>Workflow Automation</li>
+              <li>LangChain</li><li>Ollama</li><li>Python</li><li>pytest</li><li>NIST CSF</li>
             </ul>
             <div class="project-card__foot">
-              <a class="project-card__link" href="https://github.com/rohanbatrain/n8n-nodes-second-brain-database" target="_blank" rel="noopener">View on GitHub ↗</a>
+              <a class="project-card__link" href="https://github.com/rohanbatrain/hackiitk" target="_blank" rel="noopener">View on GitHub ↗</a>
             </div>
           </article>
 
           <article class="project-card reveal">
             <div class="project-card__top">
-              <h3 class="project-card__title">Karmstrot Builds</h3>
+              <h3 class="project-card__title">GDGoC_UPES</h3>
+              <span class="project-card__star" aria-label="11 GitHub stars">★ 11</span>
             </div>
             <p class="project-card__desc">
-              Android KernelSU build automation across devices — low-level system configuration with
-              SDLC practices for versioning and testing.
+              Google Developer Groups on Campus, UPES chapter — community leadership and student
+              developer programs.
             </p>
             <ul class="tags">
-              <li>C++</li><li>Shell</li><li>Android SDK</li><li>KernelSU</li>
+              <li>Community</li><li>Leadership</li><li>Events</li>
             </ul>
             <div class="project-card__foot">
-              <a class="project-card__link" href="https://github.com/rohanbatrain/Karmstrot-Builds" target="_blank" rel="noopener">View on GitHub ↗</a>
+              <a class="project-card__link" href="https://github.com/rohanbatrain/GDGoC_UPES" target="_blank" rel="noopener">View on GitHub ↗</a>
             </div>
           </article>
         </div>
@@ -328,15 +337,16 @@
       </div>
     </section>
 
-    <!-- ================= DEBUGGING / CASE STUDIES ================= -->
-    <section class="section section--alt" id="debugging">
+    <!-- ================= RELIABILITY IN PRACTICE ================= -->
+    <section class="section section--alt" id="reliability">
       <div class="container">
         <header class="section__head reveal">
-          <span class="kicker">Debugging</span>
+          <span class="kicker">Reliability in Practice</span>
           <h2>How I debug when it breaks</h2>
           <p class="section__sub">
-            Building is table stakes. Operating UPES-ECS end to end — where a dropped call is a
-            safety defect, not a bug — taught me to find the real root cause fast. Three from the logbook.
+            Building is table stakes. Operating UPES-ECS — where a dropped call is a safety
+            defect, not a bug — taught me to find the real root cause fast, and under pressure.
+            Three from the logbook.
           </p>
         </header>
 
@@ -388,60 +398,39 @@
         <div class="exp reveal">
           <ol class="exp__list">
             <li class="exp__item">
-              <div class="exp__when">Nov 2025 – Present</div>
+              <div class="exp__when">Nov 2025 – Jul 2026</div>
               <div class="exp__body">
-                <h4>Software Engineer Intern <span class="exp__co">· Techymonks · Bangalore (Remote)</span></h4>
+                <h4>Platform Engineering Intern <span class="exp__co">· Eve (early-stage startup)</span></h4>
                 <p>
-                  Building Python/FastAPI backend services on <strong>AWS</strong> (EC2, ECS, S3).
-                  Running application <strong>security audits</strong> — manual code review plus
-                  automated <strong>SAST/DAST</strong> against the OWASP Top 10 — and wiring
-                  automated security checks into CI/CD. Contributing to WCAG 2.0 accessibility.
+                  Grew from backend engineering into platform-wide ownership: multi-tenant service
+                  architecture, an API gateway as the central routing &amp; auth layer,
+                  data-ingestion infrastructure, and <strong>Kubernetes / EKS</strong> deployments
+                  with CI/CD, <strong>Prometheus</strong> observability, and QA automation.
                 </p>
                 <ul class="tags">
-                  <li>FastAPI</li><li>AWS</li><li>SAST/DAST</li><li>OWASP</li><li>CI/CD</li><li>WCAG 2.0</li>
+                  <li>Kubernetes / EKS</li><li>API Gateway</li><li>CI/CD</li><li>Prometheus</li><li>Multi-tenant</li><li>FastAPI</li>
                 </ul>
               </div>
             </li>
             <li class="exp__item">
-              <div class="exp__when">Sep 2025 – Present</div>
+              <div class="exp__when">2026 – present</div>
               <div class="exp__body">
-                <h4>Technical Head <span class="exp__co">· Google Developer Groups on Campus, UPES</span></h4>
+                <h4>Architect &amp; Operator <span class="exp__co">· UPES-ECS</span></h4>
                 <p>
-                  Led and delivered technical workshops for 100+ participants, managed
-                  cross-functional teams on production-grade initiatives, and mentored students in
-                  cloud, system design, and full-stack development.
+                  Designed and operate a resilient, offline-first emergency communication system on
+                  an enterprise networking backbone — from provisioning and high-availability design
+                  to monitoring, incident response, and runbooks.
                 </p>
                 <ul class="tags">
-                  <li>Leadership</li><li>Workshops</li><li>Mentoring</li>
+                  <li>Linux</li><li>VoIP / SIP</li><li>High availability</li><li>Networking</li>
                 </ul>
               </div>
             </li>
             <li class="exp__item">
-              <div class="exp__when">Sep 2023 – Apr 2025</div>
+              <div class="exp__when">Campus</div>
               <div class="exp__body">
-                <h4>Linux Support &amp; Community Volunteer <span class="exp__co">· LinuxWale, Dehradun</span></h4>
-                <p>
-                  Onboarded 10+ students to Linux (distro selection, dual-boot, driver/hardware
-                  troubleshooting), wrote shell scripts to automate post-install configuration, and
-                  mentored peers moving from Windows to Linux as a daily driver.
-                </p>
-                <ul class="tags">
-                  <li>Linux</li><li>Bash</li><li>Automation</li>
-                </ul>
-              </div>
-            </li>
-            <li class="exp__item">
-              <div class="exp__when">Aug – Sep 2024</div>
-              <div class="exp__body">
-                <h4>Cybersecurity Awareness Trainer <span class="exp__co">· Indian Armed Forces Cantonment Welfare Programs</span></h4>
-                <p>
-                  Delivered digital-safety and social-media-safety sessions across three official
-                  welfare programs, adapting technical security concepts for non-technical audiences.
-                  Recognized with three Certificates of Appreciation.
-                </p>
-                <ul class="tags">
-                  <li>Security awareness</li><li>Training</li><li>Communication</li>
-                </ul>
+                <h4>Community Lead <span class="exp__co">· Google Developer Groups on Campus, UPES</span></h4>
+                <p>Organising and building a developer community on campus.</p>
               </div>
             </li>
           </ol>
@@ -449,8 +438,24 @@
       </div>
     </section>
 
+    <!-- ================= RECOGNITION ================= -->
+    <section class="section section--alt" id="recognition">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="kicker">Recognition</span>
+          <h2>Certifications &amp; highlights</h2>
+        </header>
+        <div class="reveal" style="display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;max-width:840px;margin-inline:auto">
+          <span class="chip chip--green">HACKIITK '26 Finalist · IIT Kanpur · top ~0.4%</span>
+          <span class="chip">TryHackMe · Top 15%</span>
+          <span class="chip">3× Certificate of Appreciation · Indian Armed Forces welfare programs</span>
+          <span class="chip">Eureka! Junior Semifinalist · E-Cell, IIT Bombay</span>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= UPES-ECS × HPE HIGHLIGHT BAND ================= -->
-    <section class="section section--alt">
+    <section class="section">
       <div class="container">
         <div class="band reveal">
           <div class="band__glow" aria-hidden="true"></div>
@@ -459,8 +464,8 @@
             <h2>Showcased to Team HPE, July 2026</h2>
             <p>
               UPES-ECS — a resilient, offline-first campus emergency communication system on an
-              HPE + Juniper networking backbone — was presented live to Team HPE. Full call flow,
-              operations dashboard, and offline-first architecture.
+              HPE + Juniper networking backbone — was presented live to Team HPE during their visit
+              to UPES. Full call flow, operations dashboard, and offline-first architecture.
             </p>
             <a class="btn btn--primary" href="https://rohanbatrain.github.io/UPES-ECS/">Explore the collaboration →</a>
           </div>
@@ -469,21 +474,20 @@
     </section>
 
     <!-- ================= CONTACT ================= -->
-    <section class="section" id="contact">
+    <section class="section section--alt" id="contact">
       <div class="container contact">
         <div class="contact__card reveal">
           <span class="kicker">Contact</span>
-          <h2>Looking for an internship or new-grad role.</h2>
+          <h2>Looking for a platform team to grow with.</h2>
           <p>
-            Open to Software Engineering internships now and new-grad roles
-            (<strong>Cloud · Backend · Security</strong>) from 2027 — based in India, happy to
-            relocate to Bengaluru. If you're hiring, I'd love to talk.
+            Open to full-time <strong>Platform · SRE · DevOps</strong> roles from 2026 — based in
+            India and happy to relocate to Bengaluru. If you're hiring for infrastructure and
+            reliability, I'd love to talk.
           </p>
           <div class="contact__actions">
             <a class="btn btn--primary" href="mailto:contact@rohanbatra.in">✉ contact@rohanbatra.in</a>
             <a class="btn btn--ghost" href="Rohan-Batra-Resume.pdf" download>Résumé ↓</a>
-            <a class="btn btn--ghost" href="https://linkedin.com/in/rohanbatrain" target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a class="btn btn--ghost" href="https://github.com/rohanbatrain" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn btn--ghost" href="https://github.com/rohanbatrain" target="_blank" rel="noopener">GitHub · @rohanbatrain ↗</a>
           </div>
         </div>
       </div>
@@ -494,12 +498,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <p class="footer__tag"><span class="pulse-dot" aria-hidden="true"></span> Rohan Batra · @rohanbatrain</p>
-      <p class="footer__meta">
-        © <span id="year">2026</span> Rohan Batra ·
-        <a href="https://linkedin.com/in/rohanbatrain" target="_blank" rel="noopener">LinkedIn</a> ·
-        <a href="https://github.com/rohanbatrain" target="_blank" rel="noopener">GitHub</a> ·
-        <a href="https://rohanbatra.in" target="_blank" rel="noopener">rohanbatra.in</a>
-      </p>
+      <p class="footer__meta">© <span id="year">2026</span> Rohan Batra · @rohanbatrain</p>
       <p class="footer__disclaimer">
         HPE and Juniper are trademarks of their respective owners.
       </p>

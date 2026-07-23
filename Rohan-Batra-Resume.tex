@@ -1,0 +1,192 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage[a4paper,margin=0.8in]{geometry}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\thispagestyle{empty}
+
+\usepackage{carlito}
+\renewcommand{\familydefault}{\sfdefault}
+
+\setlength{\parindent}{0pt}
+
+\titlespacing{\section}{0pt}{0.6em}{0.4em}
+\titleformat{\section}{\bfseries\fontsize{12}{14}\selectfont}{}{0em}{}
+[\titlerule]
+
+\setlist[itemize]{
+  leftmargin=12pt,
+  itemsep=-5pt,
+  topsep=2pt
+}
+
+\begin{document}
+
+{\fontsize{14}{16}\selectfont \textbf{Rohan Batra}} \\
+\vspace{-10pt}
+\fontsize{11}{13}\selectfont
+
+\href{mailto:contact@rohanbatra.in}{contact@rohanbatra.in} \textbar{}
+\href{tel:+917417879921}{+91-74178-79921} \textbar{}
+\href{https://rohanbatra.in}{rohanbatra.in} \textbar{}
+\href{https://linkedin.com/in/rohanbatrain}{linkedin.com/in/rohanbatrain} \textbar{} \\
+\href{https://github.com/rohanbatrain}{github.com/rohanbatrain}
+
+\vspace{-2pt}
+
+\section*{Professional Summary}
+
+\fontsize{10}{12}\selectfont
+Computer Science Engineering undergraduate (UPES, '27) with hands-on experience across full-stack development, cloud infrastructure, and applied cybersecurity. HACKIITK 2026 finalist at IIT Kanpur (top $\sim$0.4\% of 1,300+ teams) for building Gap Hunter, an offline AI-powered NIST CSF policy gap analyzer. Comfortable shipping production-grade systems end-to-end using Python/FastAPI, AWS, Docker, and security audits across the SDLC.
+
+\section*{Education}
+
+\fontsize{10}{12}\selectfont
+B.Tech in Computer Science Engineering, UPES Dehradun \hfill Aug 2027 \\
+CGPA: 8/10
+
+\section*{Technical Skills}
+
+\fontsize{10}{12}\selectfont
+\textbf{Cloud, DevOps \& Automation:} AWS (EC2, ECS, S3), Google Cloud, Docker, GitHub Actions, CI/CD, Linux CLI, System Automation \\
+\textbf{Software Engineering:} Python, C/C++, JavaScript, SQL, FastAPI, REST APIs, Git \\
+\textbf{Security \& Accessibility:} OAuth2, RBAC, OWASP Top 10, SAST/DAST, WCAG 2.0, Cybersecurity Awareness \\
+\textbf{AI \& Tooling:} LangChain, Pydantic, Ollama, Redis \\
+\textbf{Web \& Mobile:} Hugo, Flutter, Android SDK, HTML, CSS, Responsive Design
+
+\section*{Experience}
+
+\textbf{Techymonks, Bangalore (Remote)} \hfill Nov 2025 – Present \\
+\textit{Software Engineer Intern} \\
+\vspace{-17pt}
+\begin{itemize}
+    \item Building Python/FastAPI backend services deployed on AWS (EC2, ECS, S3)
+    \item Conducting application security audits combining manual code review, automated scanning (SAST/DAST), and vulnerability reproduction against OWASP Top 10
+    \item Integrating automated security checks into CI/CD pipelines as part of the continuous integration workflow
+    \item Contributing to WCAG 2.0 accessibility on frontend integrations and backend-supported features
+\end{itemize}
+
+\textbf{Google Developer Groups On Campus (GDGOC), UPES Dehradun} \hfill Sep 2025 – Present \\
+\textit{Technical Head} \\
+\vspace{-17pt}
+\begin{itemize}
+    \item Led and delivered technical workshops for 100+ participants
+    \item Managed cross-functional teams executing production-grade initiatives
+    \item Mentored students in cloud, system design, and full-stack development
+\end{itemize}
+
+\textbf{LinuxWale, Dehradun} \hfill Sep 2023 – Apr 2025 \\
+\textit{Linux Support \& Community Volunteer} \\
+\vspace{-17pt}
+\begin{itemize}
+    \item Onboarded 10+ students to Linux: distribution selection, dual-boot setup, and driver/hardware troubleshooting across varied laptops
+    \item Wrote shell scripts to automate post-install configuration and routine setup tasks
+    \item Mentored peers transitioning from Windows to Linux as a daily-driver operating system
+\end{itemize}
+
+\textbf{Cybersecurity Awareness Sessions, Indian Armed Forces Cantonment Welfare Programs} \hfill Aug 2024 – Sep 2024 \\
+\textit{Cybersecurity Awareness Trainer} \\
+\vspace{-17pt}
+\begin{itemize}
+    \item Delivered cybersecurity and social media safety awareness sessions within Indian Armed Forces cantonment premises across three official welfare programs
+    \item Engaged with families of Indian Armed Forces personnel and senior officers through practical sessions on digital safety, privacy risks, online fraud prevention, and responsible social media usage
+    \item Adapted technical cybersecurity concepts for diverse audiences, including spouses, children, and non-technical participants
+    \item Recognized with three Certificates of Appreciation from Golden Key Eagles Women Empowerment Center, HQ Uttarakhand Sub Area, and Golden Key Tuskers
+\end{itemize}
+\textbf{Uttarakhand Blind Sports Association, Vikasnagar (On-site)} \hfill Jun 2024 – Jul 2024 \\
+\textit{Student Volunteer} \\
+\vspace{-17pt}
+\begin{itemize}
+    \item Supported sports programs for visually impaired participants
+    \item Coordinated logistics and on-ground event execution
+    \item Contributed to accessibility-focused initiatives
+\end{itemize}
+
+\section*{Projects}
+
+\textbf{UPES-ECS — Campus Emergency Communication System} \hfill 2026 \\
+Showcased to Team HPE \textbar{} \href{https://rohanbatrain.github.io/UPES-ECS/}{rohanbatrain.github.io/UPES-ECS} \\
+Tech Stack: Linux, Asterisk/PJSIP (VoIP/SIP), Python/FastAPI, Docker, HPE Juniper (SRX/EX/Mist) \\
+\vspace{-17pt}
+\begin{itemize}
+    \item Designed and operate a resilient, offline-first campus emergency communication system --- one number (111) reaches a trained response team with no internet, cloud, or cellular dependency
+    \item Runs on an enterprise HPE + Juniper networking backbone (SRX firewall, EX2300 PoE switches, Mist Wi-Fi 6) with VLAN/QoS prioritization and high-availability failover
+    \item Built a Python/FastAPI operations console and telemetry API with an automated call flow, offline voice coaching, and 44-language localized prompts generated offline
+    \item Presented live to Team HPE during their campus visit; the architecture extends beyond campus to disaster-response and critical-communication zones
+\end{itemize}
+
+\textbf{HACKIITK Finale — Gap Hunter (Team Hunterz)} \hfill 2026 \\
+Organized by C3iHub, IIT Kanpur \textbar{} \href{https://hackiitk.hunterz.in/}{hackiitk.hunterz.in} \\
+Tech Stack: Python, LangChain, Ollama, Pydantic, Electron, GitHub Actions \\
+\vspace{-17pt}
+\begin{itemize}
+    \item Built an offline AI-powered policy gap analyzer mapping security policies against NIST CSF 2.0 and the CIS MS-ISAC framework, producing evidence-grounded gap reports, revised policy drafts, and remediation roadmaps
+    \item Designed a multi-stage pipeline (PDF/DOCX ingestion $\rightarrow$ hybrid retrieval combining vector + sparse + reranking $\rightarrow$ gap analysis $\rightarrow$ policy revision) orchestrated via LangChain with Pydantic-validated structured outputs to ground LLM reasoning and reduce hallucination
+    \item Shipped cross-platform Electron desktop app with local Ollama runtime integration; automated Linux/macOS/Windows releases via GitHub Actions and PyInstaller
+    \item Maintained 702-test suite (97.7\% pass rate) spanning unit, integration, property-based, and adversarial/chaos tests
+    \item Placed top $\sim$0.4\% of 1,300+ teams and 9,000+ participants in the Solutions Track; selected as one of 24 finalist teams invited to IIT Kanpur campus
+\end{itemize}
+
+\textbf{Second Brain Database} \hfill Nov 2024 \\
+Tech Stack: Python, FastAPI, Redis, OAuth2, RBAC, Docker \\
+\vspace{-17pt}
+\begin{itemize}
+    \item Built secure REST APIs using OAuth2 authentication and role-based access control (RBAC)
+    \item Designed optimized database schemas and integrated Redis for caching
+    \item Containerized services using Docker for consistent CI/CD deployments
+\end{itemize}
+
+\textbf{n8n Nodes — Second Brain Database} \hfill Jan 2025 \\
+Tech Stack: JavaScript, n8n, Workflow Automation \\
+\vspace{-17pt}
+\begin{itemize}
+    \item Developed custom n8n nodes exposing Second Brain Database APIs as reusable workflow steps
+    \item Enabled end-to-end automation pipelines integrating backend services with orchestration workflows
+\end{itemize}
+
+\textbf{Portfolio \& Resume CI/CD Automation} \hfill Jan 2025 \\
+Tech Stack: Hugo, Flutter, MarkLang, GitHub Actions \\
+\vspace{-17pt}
+\begin{itemize}
+    \item Built multi-source deployment pipeline merging a Hugo blog and a Flutter portfolio into a unified \texttt{gh-pages} deployment
+    \item Integrated MarkLang as Hugo's content translation layer for blog posts, bridging a custom language with a static site generator
+    \item Automated build, merge, and deploy on commit; eliminated manual release steps for both portfolio and resume
+\end{itemize}
+
+\textbf{MarkLang (Translation Engine)} \hfill Jan 2025 \\
+\vspace{-17pt}
+\begin{itemize}
+    \item Built an Ollama-powered translation engine for automated multilingual workflows
+    \item Automated the full translation pipeline using GitHub Actions for autonomous execution
+\end{itemize}
+
+\textbf{Proxmox Auto-Install Assistant} \hfill Jan 2025 \\
+\vspace{-17pt}
+\begin{itemize}
+    \item Automated installation of Proxmox, reducing setup time by $\sim$80\%
+    \item Simplified complex system configuration workflows through scripted provisioning
+\end{itemize}
+
+\textbf{Karmstrot Builds (Android \& C++)} \hfill Aug 2024 \\
+Tech Stack: C++, Shell, Android SDK, KernelSU \\
+\vspace{-17pt}
+\begin{itemize}
+    \item Built automation scripts for Android KernelSU integration across devices
+    \item Modified low-level system configurations and applied SDLC practices for versioning and testing
+\end{itemize}
+
+\section*{Certifications \& Accomplishments}
+
+\fontsize{10}{12}\selectfont
+\begin{itemize}
+    \item Top 15\% — TryHackMe cybersecurity learning platform
+    \item Certificate of Appreciation — Golden Key Eagles Women Empowerment Center (Sep 2024)
+    \item Certificate of Appreciation — HQ Uttarakhand Sub Area (Aug 2024)
+    \item Certificate of Appreciation — Golden Key Tuskers, AWWA Week 2024 (Aug 2024)
+    \item Semifinalist — Eureka! Junior 2022--23, E-Cell IIT Bombay (Issued Nov 2022; Credential ID: ecell2021)
+    \item Semifinalist — Eureka! Junior 2021--22, E-Cell IIT Bombay (Issued Dec 2021; Credential ID: ecell2021)
+\end{itemize}
+
+\end{document}

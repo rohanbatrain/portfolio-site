@@ -25,6 +25,17 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/portfolio.css" />
   <link rel="stylesheet" href="assets/css/gallery.css" />
+  <style>
+    .intro-video{position:relative;width:100%;max-width:640px;margin:0 auto 1.6rem;aspect-ratio:16/9;border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--border-strong);box-shadow:var(--shadow);background:var(--surface-2)}
+    .intro-video__btn{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;background:none;cursor:pointer;display:block}
+    .intro-video__btn img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease),filter .3s var(--ease)}
+    .intro-video__btn:hover img{transform:scale(1.04);filter:brightness(.88)}
+    .intro-video__play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:50%;display:grid;place-items:center;font-size:1.35rem;color:var(--on-green);background:var(--green);box-shadow:0 12px 32px -8px var(--green-glow);padding-left:4px;transition:transform .2s var(--ease)}
+    .intro-video__btn:hover .intro-video__play,.intro-video__btn:focus-visible .intro-video__play{transform:translate(-50%,-50%) scale(1.08)}
+    .intro-video__cap{position:absolute;left:12px;bottom:12px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.5);padding:4px 9px;border-radius:5px;backdrop-filter:blur(4px)}
+    .intro-video__btn:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+    .intro-video__frame{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  </style>
 </head>
 <body>
   <!-- ================= PRELOADER (HPE-style intro) ================= -->
@@ -494,6 +505,13 @@
               HPE + Juniper networking backbone — was presented live to Team HPE. Full call flow,
               operations dashboard, and offline-first architecture.
             </p>
+            <figure class="intro-video reveal">
+              <button class="intro-video__btn" type="button" id="introVideoBtn" data-video="https://drive.google.com/file/d/1wChZgK9p-VcRLDymdN1WhYhCtbZqNE88/preview" aria-label="Play the UPES-ECS intro video">
+                <img loading="lazy" alt="UPES-ECS intro video — presented to Team HPE" src="https://drive.google.com/thumbnail?id=1wChZgK9p-VcRLDymdN1WhYhCtbZqNE88&sz=w1280" />
+                <span class="intro-video__play" aria-hidden="true">▶</span>
+                <span class="intro-video__cap">Watch the intro</span>
+              </button>
+            </figure>
             <a class="btn btn--primary" href="https://upes-ecs.rohanbatra.in/">Explore the collaboration →</a>
           </div>
         </div>
@@ -628,6 +646,22 @@
         {id:"1K0aKg--CFVjz5OUVjAqQ59xArYHYrfyL", day:"d20"}
       ]
     };
+    /* Intro video: click the poster → load the Drive player in place */
+    (function () {
+      var b = document.getElementById("introVideoBtn");
+      if (!b) return;
+      b.addEventListener("click", function () {
+        var fig = b.closest(".intro-video") || b.parentNode;
+        var f = document.createElement("iframe");
+        f.className = "intro-video__frame";
+        f.src = b.getAttribute("data-video");
+        f.title = "UPES-ECS intro video";
+        f.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture";
+        f.setAttribute("allowfullscreen", "");
+        fig.innerHTML = "";
+        fig.appendChild(f);
+      });
+    })();
   </script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/gallery.js"></script>

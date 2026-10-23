@@ -1,194 +1,151 @@
-\documentclass[a4paper,10pt]{article}
+%==============================================================================
+%  Resume template. Double-angle-bracket tokens are filled by
+%  pipeline/render_resume.py. Do not compile this file directly — compile the
+%  generated output in resumes/variants/ instead.
+%
+%  ATS-safe by construction: single column, no tables/graphics in the parse
+%  path, standard section headings, selectable text, standard fonts.
+%==============================================================================
+\documentclass[10pt,a4paper]{article}
 
-\usepackage{parskip}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[left=1.25cm,right=1.25cm,top=0.95cm,bottom=0.95cm]{geometry}
 \usepackage{enumitem}
-\usepackage[a4paper,margin=0.8in]{geometry}
 \usepackage{titlesec}
-\usepackage{hyperref}
-\thispagestyle{empty}
+\usepackage{xcolor}
+\usepackage[hidelinks,pdftex,pdfauthor={Rohan Batra},pdftitle={Rohan Batra - Resume},pdfsubject={Resume},pdfcreator={pdflatex}]{hyperref}
+\pdfgentounicode=1
 
-\usepackage{carlito}
-\renewcommand{\familydefault}{\sfdefault}
+\definecolor{rulegray}{gray}{0.55}
+\definecolor{linkblue}{RGB}{20,60,140}
 
+\hypersetup{colorlinks=true,urlcolor=linkblue,linkcolor=linkblue}
+
+\pagestyle{empty}
 \setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
 
-\titlespacing{\section}{0pt}{0.6em}{0.4em}
-\titleformat{\section}{\bfseries\fontsize{12}{14}\selectfont}{}{0em}{}
-[\titlerule]
+% Compact section headings with a rule.
+% \MakeUppercase lives in the before-code (5th arg) so it applies only to the
+% title text — putting \uppercase in the format arg also uppercases the
+% after-code and breaks the \textcolor name.
+\titleformat{\section}{\normalfont\large\bfseries}{}{0pt}{\MakeUppercase}[\vspace{-0.6em}\textcolor{rulegray}{\rule{\linewidth}{0.5pt}}]
+\titlespacing*{\section}{0pt}{0.6em}{0.25em}
 
-\setlist[itemize]{
-  leftmargin=12pt,
-  itemsep=-5pt,
-  topsep=2pt
+\setlist[itemize]{leftmargin=1.05em,topsep=0.08em,itemsep=0.04em,parsep=0pt,label=\textbullet}
+
+% Entry header: bold title left, tech/right meta in italics.
+\newcommand{\entry}[3]{%
+  \textbf{#1}\hfill\textit{\small #2}\\[-0.15em]
+  {\small #3}\par\vspace{0.08em}%
 }
 
 \begin{document}
 
-{\fontsize{14}{16}\selectfont \textbf{Rohan Batra}} \\
-\vspace{-10pt}
-\fontsize{11}{13}\selectfont
+%------------------------------------------------------------------ HEADER
+\begin{center}
+  {\LARGE\bfseries Rohan Batra}\\[0.25em]
+  {\small
+    Vikasnagar, Dehradun, Uttarakhand, India \;|\; \href{mailto:contact@rohanbatra.in}{contact@rohanbatra.in} \;|\; +91-74178-79921\\[0.15em]
+    \href{https://github.com/rohanbatrain}{github.com/rohanbatrain} \;|\; \href{https://linkedin.com/in/rohanbatrain}{linkedin.com/in/rohanbatrain} \;|\; \href{https://hpe.rohanbatra.in}{hpe.rohanbatra.in} \;|\; \href{https://portfolio.rohanbatra.in}{portfolio.rohanbatra.in}
+  }
+\end{center}
 
-\href{mailto:contact@rohanbatra.in}{contact@rohanbatra.in} \textbar{}
-\href{tel:+917417879921}{+91-74178-79921} \textbar{}
-\href{https://hpe.rohanbatra.in}{hpe.rohanbatra.in} \textbar{}
-\href{https://linkedin.com/in/rohanbatrain}{linkedin.com/in/rohanbatrain} \textbar{} \\
-\href{https://github.com/rohanbatrain}{github.com/rohanbatrain}
+%------------------------------------------------------------------ SUMMARY
+\section{Summary}
+Final-year B.Tech Computer Science (Cyber Security) student at UPES (graduating 2027, CGPA 8.1) seeking an internship at HPE Bengaluru. Co-built and operates a LAN-first campus emergency communication system on HPE Juniper SRX, EX and Mist hardware --- presented to Team HPE in Bengaluru --- and maintains it hands-on: configuring and updating the hardware and software, troubleshooting incidents to root cause, and running health checks and load tests. Programs in Python and C++; comfortable across Linux, containers, cloud and the networking beneath them.
 
-\vspace{-2pt}
+%------------------------------------------------------------------ EDUCATION
+\section{Education}
+\entry{UPES Dehradun --- B.Tech (Hons.) Computer Science Engineering, Cyber Security}{Aug 2023 -- Aug 2027}{CGPA 8.1/10}
 
-\section*{Professional Summary}
+%------------------------------------------------------------------ SKILLS
+\section{Skills}
+\textbf{Languages:} Python, C++, C, Rust, TypeScript, JavaScript, Shell\\
+\textbf{Networking:} HPE Juniper SRX / EX / Mist, Junos, Virtual Chassis, VLANs, QoS / CoS, LLDP-MED, PoE, NETCONF, DHCP / NAT, DNS, Subnetting, pfSense\\
+\textbf{Infrastructure:} Linux, Kubernetes, Docker, Helm, Nginx, Proxmox, QEMU, Terraform / OpenTofu\\
+\textbf{DevOps:} GitHub Actions, CI gating (Ruff, ShellCheck, gitleaks), cargo-llvm-cov, cargo-mutants\\
+\textbf{Security:} Gitleaks, HashiCorp Vault, Semgrep, Trivy, age encryption, AppArmor, Burp Suite, Cerbos\\
+\textbf{Data:} MongoDB, Redis, PostgreSQL, ChromaDB, MySQL, DuckDB, DuckLake\\
+\textbf{Backend:} FastAPI, Flask, Pydantic, SQLAlchemy, Alembic, Microservices, REST APIs
 
-\fontsize{10}{12}\selectfont
-Computer Science undergraduate (UPES, '27) focused on reliability and platform engineering --- building and operating production systems on Linux and cloud infrastructure, and root-causing incidents end-to-end. I design and operate UPES-ECS, an always-on emergency-communication system on enterprise networking (active/standby HA, health checks, load testing, runbooks). HACKIITK 2026 finalist at IIT Kanpur (top $\sim$0.4\% of 1,300+ teams). Comfortable across Linux, AWS, Docker, CI/CD, and security audits (OWASP, SAST/DAST) throughout the SDLC.
-
-\section*{Education}
-
-\fontsize{10}{12}\selectfont
-B.Tech in Computer Science Engineering, UPES Dehradun \hfill Aug 2027 \\
-CGPA: 8/10
-
-\section*{Technical Skills}
-
-\fontsize{10}{12}\selectfont
-\textbf{Reliability \& Systems:} Linux, systemd, High availability / failover, Health checks, Incident response, Load testing, Runbooks, Proxmox \\
-\textbf{Cloud, DevOps \& Automation:} AWS (EC2, ECS, S3), Google Cloud, Docker, GitHub Actions, CI/CD, System Automation \\
-\textbf{Networking:} Juniper (SRX, EX, Mist), TCP/IP, DNS, VLAN, QoS \\
-\textbf{Software Engineering:} Python, C/C++, JavaScript, SQL, FastAPI, REST APIs, Git \\
-\textbf{Security \& Accessibility:} OAuth2, RBAC, OWASP Top 10, SAST/DAST, WCAG 2.0 \\
-\textbf{AI \& Tooling:} LangChain, Pydantic, Ollama, Redis \\
-\textbf{Web \& Mobile:} Hugo, Flutter, Android SDK, HTML, CSS
-
-\section*{Experience}
-
-\textbf{Techymonks, Bangalore (Remote)} \hfill Nov 2025 – Jul 2026 \\
-\textit{Platform Engineering Intern} \\
-\vspace{-17pt}
+%------------------------------------------------------------------ PROJECTS
+\section{Projects}
+\entry{UPES-ECS --- Campus Emergency Communication System}{\href{https://upes-ecs.rohanbatra.in}{Live} \textbar{} \href{https://github.com/rohanbatrain/UPES-ECS}{Code}}{LAN-only emergency calling on HPE Juniper networking. Presented to Team HPE at HPE's Bengaluru campus (15 Jul 2026) and demonstrated live at UPES (20 Jul 2026).\\ \textit{Juniper SRX/EX/Mist, Junos, Asterisk/PJSIP, FastAPI, NETCONF, PowerShell}}
 \begin{itemize}
-    \item Building Python/FastAPI backend services deployed on AWS (EC2, ECS, S3)
-    \item Conducting application security audits combining manual code review, automated scanning (SAST/DAST), and vulnerability reproduction against OWASP Top 10
-    \item Integrating automated security checks into CI/CD pipelines as part of the continuous integration workflow
-    \item Contributing to WCAG 2.0 accessibility on frontend integrations and backend-supported features
+  \item Co-built a \textbf{LAN-only} campus emergency calling system (one-number 111 hotline) on Asterisk/PJSIP requiring no internet, SIM, or cloud --- designed, deployed and operated end-to-end on an \textbf{HPE Juniper} networking backbone.
+  \item Configured the enterprise fabric: \textbf{Juniper SRX300/320} as the guarded edge (firewall, DHCP, NTP, LAN-only boundary), a \textbf{Virtual Chassis of two EX2300-C-12P} PoE switches carrying the voice network, and two \textbf{Mist AP32} Wi-Fi 6 access points for campus-wide softphone reach.
+  \item Engineered the voice fabric for zero-touch operation and self-healing: \textbf{LLDP-MED} auto-provisioning of voice VLAN, PoE class and DSCP; strict-priority \textbf{CoS for RTP}; \textbf{DHCP-snooping with Dynamic ARP Inspection} to protect the failover path; and Junos \textbf{event-options} policies that power-cycle a hung AP without human intervention. Budgeted PoE against the switch's real 124 W ceiling.
+  \item Designed \textbf{offline caller location by switch port} (IP to MAC to port to room) so the network identifies where a 111 call originated with no cloud or location service, and fed live switch/AP state to the Operations Console over \textbf{NETCONF}.
+  \item Operated it as a production system where downtime is a safety defect --- active/standby high availability, health checks, load testing, and incident root-cause analysis. Three documented RCAs: a serialized single-threaded proxy, a NAT media-address fault dropping every call at 32 seconds, and leaked channels with no teardown path.
+  \item Developed a FastAPI status/control API exposing real-time queue, call, and system state to an operations console and live LED-TV wallboards, provisioned end-to-end via a single PowerShell installer.
+  \item Implemented multilingual IVR across \textbf{44 languages} with Piper TTS voice prompts and an offline panic-coach fallback, gated by CI (Ruff, ShellCheck, PSScriptAnalyzer, gitleaks).
 \end{itemize}
 
-\textbf{Google Developer Groups On Campus (GDGOC), UPES Dehradun} \hfill Sep 2025 – Present \\
-\textit{Technical Head} \\
-\vspace{-17pt}
+\entry{Shimpaku --- Juniper Junos Lab as Code}{\href{https://github.com/rohanbatrain/juniper-7-day-sprint}{Code}}{Hands-on Juniper by HPE sprint across routing, switching, security, data centre and automation.\\ \textit{vJunos, libvirt/KVM, OSPF, BGP EVPN-VXLAN, BFD, PyEZ/NETCONF, Ansible}}
 \begin{itemize}
-    \item Led and delivered technical workshops for 100+ participants
-    \item Managed cross-functional teams executing production-grade initiatives
-    \item Mentored students in cloud, system design, and full-stack development
+  \item Built a \textbf{topology-as-code} vJunos lab on plain libvirt/KVM: per-link bridges, isolated management with nftables, qcow2 overlays for instant snapshot/rollback on every ``break it'' drill.
+  \item Built a \textbf{spine/leaf EVPN-VXLAN} fabric: OSPF underlay, iBGP EVPN overlay, ECMP; found that a dead spine took the 40\,s OSPF dead interval to detect, and closed it with \textbf{BFD} (300\,ms $\times$ 3) as an 8-line generated diff.
+  \item Automated the fabric end to end: \texttt{gen\_fabric.py} renders Junos config from the topology, \texttt{deploy.py} commits over \textbf{NETCONF (PyEZ)} or Ansible and asserts OSPF, ECMP, EVPN and cross-VXLAN reachability --- idempotent, drift-repairing, and checked in GitHub Actions CI.
 \end{itemize}
 
-\textbf{LinuxWale, Dehradun} \hfill Sep 2023 – Apr 2025 \\
-\textit{Linux Support \& Community Volunteer} \\
-\vspace{-17pt}
+\entry{Paridyum --- Independent Multi-Tenant Platform}{\href{https://paridyum.in}{Live}}{Self-directed systems project: built solo from an empty directory to a running five-node Kubernetes cluster on self-hosted metal with a public internet edge.\\ \textit{Rust, OpenTofu, Ansible, Talos Linux, Kubernetes, Cilium, PostgreSQL}}
 \begin{itemize}
-    \item Onboarded 10+ students to Linux: distribution selection, dual-boot setup, and driver/hardware troubleshooting across varied laptops
-    \item Wrote shell scripts to automate post-install configuration and routine setup tasks
-    \item Mentored peers transitioning from Windows to Linux as a daily-driver operating system
+  \item Built a \textbf{specification-as-software governance system}: 251 versioned artifacts (constitution, architecture decision records, standards, RFCs) with machine checks mapped outward to \textbf{NIST SSDF, CIS v8.1 and NIST CSF 2.0}, a multi-axis test-type taxonomy, and a precedence order in which existing code is the lowest authority.
+  \item Delivered the full infrastructure path: hardened bare metal (AppArmor, nftables, confined QEMU/libvirt) through \textbf{Proxmox and OpenTofu} to \textbf{Talos Linux and Kubernetes} with Cilium as CNI and kube-proxy replacement, L2-announced load-balancer VIPs, and etcd snapshots that assert they captured something.
+  \item Wrote \textbf{31,000+ lines of Rust} across two production tools --- hexagonal architecture, trait-based abstraction, injectable clock adapters, and three independent SHA-256 hash chains for tamper-evident audit records.
 \end{itemize}
 
-\textbf{Cybersecurity Awareness Sessions, Indian Armed Forces Cantonment Welfare Programs} \hfill Aug 2024 – Sep 2024 \\
-\textit{Cybersecurity Awareness Trainer} \\
-\vspace{-17pt}
+\entry{AutoTriage --- Autonomous Vulnerability Triage \& Remediation Agent}{\href{https://github.com/rohanbatrain/autotriage}{Code}}{An agent that triages real scanner findings end-to-end, with evals and human-in-the-loop guardrails.\\ \textit{Python, Claude Agent SDK, Semgrep, Trivy, Gitleaks, Pydantic}}
 \begin{itemize}
-    \item Delivered cybersecurity and social media safety awareness sessions within Indian Armed Forces cantonment premises across three official welfare programs
-    \item Engaged with families of Indian Armed Forces personnel and senior officers through practical sessions on digital safety, privacy risks, online fraud prevention, and responsible social media usage
-    \item Adapted technical cybersecurity concepts for diverse audiences, including spouses, children, and non-technical participants
-    \item Recognized with three Certificates of Appreciation from Golden Key Eagles Women Empowerment Center, HQ Uttarakhand Sub Area, and Golden Key Tuskers
-\end{itemize}
-\textbf{Uttarakhand Blind Sports Association, Vikasnagar (On-site)} \hfill Jun 2024 – Jul 2024 \\
-\textit{Student Volunteer} \\
-\vspace{-17pt}
-\begin{itemize}
-    \item Supported sports programs for visually impaired participants
-    \item Coordinated logistics and on-ground event execution
-    \item Contributed to accessibility-focused initiatives
+  \item Built an autonomous vulnerability-triage agent on the Claude Agent SDK that ingests Semgrep, Trivy, and Gitleaks findings, reasons about severity and business impact, and files tickets, assigns owners, and drafts remediation PRs.
+  \item Enforced human-in-the-loop guardrails via Pydantic validators --- confidence-threshold escalation, fail-closed on malformed output, and prompt-injection defenses that treat scanner output as untrusted input.
+  \item Built a fix-validation loop that applies proposed patches to an isolated copy of the code and re-runs the scanner, accepting a fix only when the finding is verifiably resolved with no regression.
+  \item Designed an eval harness scoring triage decisions against a labelled ground-truth set: \textbf{100\% verdict accuracy} across 44 live findings triaged into 24 tickets and 20 human escalations, backed by 68 tests at 89\% coverage.
 \end{itemize}
 
-\section*{Projects}
-
-\textbf{UPES-ECS — Campus Emergency Communication System} \hfill 2026 \\
-Showcased to Team HPE \textbar{} \href{https://rohanbatrain.github.io/UPES-ECS/}{rohanbatrain.github.io/UPES-ECS} \\
-Tech Stack: Linux, Asterisk/PJSIP (VoIP/SIP), Python/FastAPI, Docker, HPE Juniper (SRX/EX/Mist) \\
-\vspace{-17pt}
+%------------------------------------------------------------------ EXPERIENCE
+\section{Experience}
+\entry{Hardware \& WireGuard Research Intern}{Jul 2026 -- Present}{Exaflair Technologies Pvt. Ltd., Dehradun --- Remote}
 \begin{itemize}
-    \item Designed and operate a resilient, offline-first campus emergency communication system --- one number (111) reaches a trained response team with no internet, cloud, or cellular dependency
-    \item Runs on an enterprise HPE + Juniper networking backbone (SRX firewall, EX2300 PoE switches, Mist Wi-Fi 6) with VLAN/QoS prioritization and high-availability failover
-    \item Built a Python/FastAPI operations console and telemetry API with an automated call flow, offline voice coaching, and 44-language localized prompts generated offline
-    \item Presented live to Team HPE during their campus visit; the architecture extends beyond campus to disaster-response and critical-communication zones
+  \item Primary infrastructure contributor to \textbf{DEKLO}, Exaflair's self-hosted edge PaaS: Ansible-automated \textbf{k3s} fleet over a \textbf{WireGuard} mesh --- a Mumbai hub plus edge nodes on consumer broadband in Chandigarh --- with node hardening, fleet conventions, and CloudNativePG PostgreSQL.
+  \item Built backups for every tenant database with restore drills, turned on container-registry authentication, and surfaced node-install failures and live node state in the provisioning portal.
+  \item Wrote the product-research site behind the platform design: instrumented trials, recorded decisions, and measured cross-carrier latency and packet loss.
 \end{itemize}
 
-\textbf{HACKIITK Finale — Gap Hunter (Team Hunterz)} \hfill 2026 \\
-Organized by C3iHub, IIT Kanpur \\
-Tech Stack: Python, LangChain, Ollama, Pydantic, Electron, GitHub Actions \\
-\vspace{-17pt}
+\entry{Platform Engineering Intern}{Nov 2025 -- Jul 2026}{Eve (TechyMonks), Bengaluru --- Remote}
 \begin{itemize}
-    \item Built an offline AI-powered policy gap analyzer mapping security policies against NIST CSF 2.0 and the CIS MS-ISAC framework, producing evidence-grounded gap reports, revised policy drafts, and remediation roadmaps
-    \item Designed a multi-stage pipeline (PDF/DOCX ingestion $\rightarrow$ hybrid retrieval combining vector + sparse + reranking $\rightarrow$ gap analysis $\rightarrow$ policy revision) orchestrated via LangChain with Pydantic-validated structured outputs to ground LLM reasoning and reduce hallucination
-    \item Shipped cross-platform Electron desktop app with local Ollama runtime integration; automated Linux/macOS/Windows releases via GitHub Actions and PyInstaller
-    \item Maintained 702-test suite (97.7\% pass rate) spanning unit, integration, property-based, and adversarial/chaos tests
-    \item Placed top $\sim$0.4\% of 1,300+ teams and 9,000+ participants in the Solutions Track; selected as one of 24 finalist teams invited to IIT Kanpur campus
+  \item Founded the \textbf{Eve Gateway Stack} on APISIX and etcd --- central routing, JWT authentication, rate limiting, CORS, and Prometheus metrics --- establishing the platform's central trust and routing layer, with gateway-level tenant isolation, trusted tenant/user header injection, and Cerbos-based authorization rules.
+  \item Founded and led the \textbf{Eve Data Management Service}: a FastAPI microservice with source/destination/connection APIs, SQLModel models, Alembic migrations, an Airbyte Config API client, sync orchestration, webhook routes, health checks, and Kubernetes/EKS deployment.
+  \item Built \textbf{Airbyte-based ingestion} --- typed connector definitions, USER vs PLATFORM destination modes, connection testing, sync polling and history tracking, and S3/MinIO bucket auto-creation --- and resolved staging failures across Airbyte URLs, timeouts, secrets, readiness probes, and Temporal support.
 \end{itemize}
 
-\textbf{Second Brain Database} \hfill Nov 2024 \\
-Tech Stack: Python, FastAPI, Redis, OAuth2, RBAC, Docker \\
-\vspace{-17pt}
+\entry{Technical Head}{Sep 2025 -- Present}{Google Developer Groups On Campus (GDGOC), UPES Dehradun}
 \begin{itemize}
-    \item Built secure REST APIs using OAuth2 authentication and role-based access control (RBAC)
-    \item Designed optimized database schemas and integrated Redis for caching
-    \item Containerized services using Docker for consistent CI/CD deployments
+  \item Led and delivered technical workshops for \textbf{100+ participants} across cloud, system design, and full-stack development.
 \end{itemize}
 
-\textbf{n8n Nodes — Second Brain Database} \hfill Jan 2025 \\
-Tech Stack: JavaScript, n8n, Workflow Automation \\
-\vspace{-17pt}
+\entry{Linux Support \& Community Volunteer}{Sep 2023 -- Apr 2025}{LinuxWale, Dehradun}
 \begin{itemize}
-    \item Developed custom n8n nodes exposing Second Brain Database APIs as reusable workflow steps
-    \item Enabled end-to-end automation pipelines integrating backend services with orchestration workflows
+  \item Onboarded \textbf{10+ students} to Linux --- distribution selection, dual-boot setup, and driver/hardware troubleshooting across varied hardware.
+  \item Wrote shell scripts to automate post-install configuration and routine setup tasks.
 \end{itemize}
 
-\textbf{Portfolio \& Resume CI/CD Automation} \hfill Jan 2025 \\
-Tech Stack: Hugo, Flutter, MarkLang, GitHub Actions \\
-\vspace{-17pt}
+%------------------------------------------------------------------ CERTIFICATIONS
+\section{Certifications}
 \begin{itemize}
-    \item Built multi-source deployment pipeline merging a Hugo blog and a Flutter portfolio into a unified \texttt{gh-pages} deployment
-    \item Integrated MarkLang as Hugo's content translation layer for blog posts, bridging a custom language with a static site generator
-    \item Automated build, merge, and deploy on commit; eliminated manual release steps for both portfolio and resume
+  \item \textbf{Open Learning --- Migrating from the Cisco CCNA to the JNCIA-Junos}, HPE Networking Education Services (Sep 2026)
+  \item \textbf{In progress, via the Shimpaku Juniper sprint:} JNCIA-Junos, JNCIA-Cloud, JNCIA-SEC, JNCIA-MistAI, JNCIA-Design, JNCIA-DevOps, JNCIA-DC
 \end{itemize}
 
-\textbf{MarkLang (Translation Engine)} \hfill Jan 2025 \\
-\vspace{-17pt}
+%------------------------------------------------------------------ ACHIEVEMENTS
+\section{Achievements}
 \begin{itemize}
-    \item Built an Ollama-powered translation engine for automated multilingual workflows
-    \item Automated the full translation pipeline using GitHub Actions for autonomous execution
-\end{itemize}
-
-\textbf{Proxmox Auto-Install Assistant} \hfill Jan 2025 \\
-\vspace{-17pt}
-\begin{itemize}
-    \item Automated installation of Proxmox, reducing setup time by $\sim$80\%
-    \item Simplified complex system configuration workflows through scripted provisioning
-\end{itemize}
-
-\textbf{Karmstrot Builds (Android \& C++)} \hfill Aug 2024 \\
-Tech Stack: C++, Shell, Android SDK, KernelSU \\
-\vspace{-17pt}
-\begin{itemize}
-    \item Built automation scripts for Android KernelSU integration across devices
-    \item Modified low-level system configurations and applied SDLC practices for versioning and testing
-\end{itemize}
-
-\section*{Certifications \& Accomplishments}
-
-\fontsize{10}{12}\selectfont
-\begin{itemize}
-    \item Top 15\% — TryHackMe cybersecurity learning platform
-    \item Certificate of Appreciation — Golden Key Eagles Women Empowerment Center (Sep 2024)
-    \item Certificate of Appreciation — HQ Uttarakhand Sub Area (Aug 2024)
-    \item Certificate of Appreciation — Golden Key Tuskers, AWWA Week 2024 (Aug 2024)
-    \item Semifinalist — Eureka! Junior 2022--23, E-Cell IIT Bombay (Issued Nov 2022; Credential ID: ecell2021)
-    \item Semifinalist — Eureka! Junior 2021--22, E-Cell IIT Bombay (Issued Dec 2021; Credential ID: ecell2021)
+  \item \textbf{Finalist} --- HACKIITK 2026, IIT Kanpur: top 0.4\% of 1,300+ teams (9,000+ participants), with an offline AI policy-gap analyser (\href{https://github.com/rohanbatrain/hackiitk}{Code})
+  \item \textbf{Top 15\%} --- TryHackMe cybersecurity learning platform
+  \item \textbf{Semifinalist} --- Eureka! Junior 2022--23, E-Cell IIT Bombay (2022)
+  \item \textbf{Semifinalist} --- Eureka! Junior 2021--22, E-Cell IIT Bombay (2021)
 \end{itemize}
 
 \end{document}

@@ -77,10 +77,10 @@ Final-year CS (Cyber Security) student at UPES, open to any role at HPE --- netw
   \item Operate it as production: active/standby HA, health checks, load testing; three documented RCAs, including a NAT media-address fault that dropped every call at 32\,s.
 \end{itemize}
 
-\entry{Shimpaku --- Mist-style Assurance for a Junos Lab}{\href{https://github.com/rohanbatrain/shimpaku}{Code} \textbar{} \href{https://github.com/rohanbatrain/juniper-7-day-sprint}{Lab}}{Assurance NMS for a seven-device vJunos lab, built on my Juniper 7-Day Sprint lab as code.}
+\entry{Shimpaku --- Mist-style Assurance for a Junos Lab}{2026 -- Present \textbar{} \href{https://github.com/rohanbatrain/shimpaku}{Code} \textbar{} \href{https://github.com/rohanbatrain/juniper-7-day-sprint}{Lab}}{Assurance NMS for seven vJunos devices, on my 7-Day Sprint lab. \textit{Python, React/TypeScript, gNMI, NETCONF, MCP}}
 \begin{itemize}
   \item gNMI telemetry every 10\,s, service levels from 24 synthetic probes, \textbf{blast-radius} root cause, and a fault-injection harness (80/80 self-test trials).
-  \item AI agent that can only \textbf{propose} changes over MCP: human approval, ten guardrails, \texttt{commit confirmed}, hash-chained audit --- 8 of 16 first-week proposals blocked before commit.
+  \item \textbf{Ask Shim}, an MCP AI agent across campus and leaf--spine topologies, can only \textbf{propose} changes: human approval, ten guardrails, \texttt{commit confirmed}, hash-chained audit --- 8 of 16 first-week proposals blocked before commit.
   \item \textit{7-Day Sprint:} spine/leaf \textbf{EVPN-VXLAN} on libvirt/KVM; closed a 40\,s dead-spine detection gap with \textbf{BFD}; config generated and deployed over NETCONF/Ansible, checked in CI.
 \end{itemize}
 

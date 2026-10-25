@@ -21,6 +21,7 @@ Team HPE.
 - `assets/css/styles.css` — shared design system (dark + light, responsive)
 - `assets/css/portfolio.css` — portfolio-page component styles
 - `assets/js/main.js` — theme toggle, mobile nav, scroll reveal
+- `resume/index.html` — `/resume`: the résumé PDF, viewable and downloadable
 - `CNAME` — custom domain for GitHub Pages (`hpe.rohanbatra.in`)
 
 ## Add your photos & videos

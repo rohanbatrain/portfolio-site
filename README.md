@@ -23,6 +23,7 @@ Team HPE.
 - `assets/js/main.js` — theme toggle, mobile nav, scroll reveal
 - `resume/index.html` — `/resume`: the résumé PDF, viewable and downloadable
 - `resume/one-page/index.html` — `/resume/one-page`: the one-page résumé (`Rohan-Batra-Resume-1page.{tex,pdf}`)
+- `printable/` and `printable/one-page/` — print copies with every demo and code link written out (`*-print.{tex,pdf}`, generated from the two résumé sources)
 - `CNAME` — custom domain for GitHub Pages (`hpe.rohanbatra.in`)
 
 ## Add your photos & videos

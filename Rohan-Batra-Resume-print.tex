@@ -1,0 +1,141 @@
+%==============================================================================
+%  Resume template. Double-angle-bracket tokens are filled by
+%  pipeline/render_resume.py. Do not compile this file directly — compile the
+%  generated output in resumes/variants/ instead.
+%
+%  ATS-safe by construction: single column, no tables/graphics in the parse
+%  path, standard section headings, selectable text, standard fonts.
+%==============================================================================
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[left=1.25cm,right=1.25cm,top=0.8cm,bottom=0.8cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage[hidelinks,pdftex,pdfauthor={Rohan Batra},pdftitle={Rohan Batra - Resume},pdfsubject={Resume},pdfcreator={pdflatex}]{hyperref}
+\pdfgentounicode=1
+
+\definecolor{rulegray}{gray}{0.55}
+\definecolor{linkblue}{RGB}{20,60,140}
+
+\hypersetup{colorlinks=true,urlcolor=linkblue,linkcolor=linkblue}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Compact section headings with a rule.
+% \MakeUppercase lives in the before-code (5th arg) so it applies only to the
+% title text — putting \uppercase in the format arg also uppercases the
+% after-code and breaks the \textcolor name.
+\titleformat{\section}{\normalfont\large\bfseries}{}{0pt}{\MakeUppercase}[\vspace{-0.6em}\textcolor{rulegray}{\rule{\linewidth}{0.5pt}}]
+\titlespacing*{\section}{0pt}{0.6em}{0.25em}
+
+\setlist[itemize]{leftmargin=1.05em,topsep=0.08em,itemsep=0.04em,parsep=0pt,label=\textbullet}
+
+% Entry header: bold title left, tech/right meta in italics.
+\newcommand{\entry}[3]{%
+  \textbf{#1}\hfill\textit{\small #2}\\[-0.15em]
+  {\small #3}\par\vspace{0.08em}%
+}
+
+\begin{document}
+
+%------------------------------------------------------------------ HEADER
+\begin{center}
+  {\LARGE\bfseries Rohan Batra}\\[0.25em]
+  {\small
+    Vikasnagar, Dehradun, Uttarakhand, India \;|\; \href{mailto:contact@rohanbatra.in}{contact@rohanbatra.in} \;|\; +91-74178-79921\\[0.15em]
+    \href{https://github.com/rohanbatrain}{github.com/rohanbatrain} \;|\; \href{https://linkedin.com/in/rohanbatrain}{linkedin.com/in/rohanbatrain} \;|\; \href{https://hpe.rohanbatra.in}{hpe.rohanbatra.in} \;|\; \href{https://portfolio.rohanbatra.in}{portfolio.rohanbatra.in}
+  }
+\end{center}
+
+%------------------------------------------------------------------ SUMMARY
+\section{Summary}
+Final-year B.Tech Computer Science (Cyber Security) student at UPES (graduating 2027, CGPA 8.1), open to any role at HPE --- networking, platform, software, support or security, internship or full-time. Co-built and operates a LAN-first campus emergency communication system on HPE Juniper SRX, EX and Mist hardware, presented to Team HPE in Bengaluru, and troubleshoots it to root cause. Built Shimpaku, a Mist-style assurance system for a seven-device Junos lab with a guardrailed AI agent. Programs in Python and C++; comfortable across Linux, containers, Kubernetes, cloud and the networking beneath them.
+
+%------------------------------------------------------------------ EDUCATION
+\section{Education}
+\entry{UPES Dehradun --- B.Tech (Hons.) Computer Science Engineering, Cyber Security}{Aug 2023 -- Aug 2027}{CGPA 8.1/10}
+
+%------------------------------------------------------------------ SKILLS
+\section{Skills}
+\textbf{Languages:} Python, C++, C, Rust, TypeScript, JavaScript, Shell\\
+\textbf{Networking:} HPE Juniper SRX / EX / Mist, Junos, OSPF, BGP EVPN-VXLAN, BFD, gNMI, Virtual Chassis, VLANs, QoS / CoS, LLDP-MED, PoE, NETCONF, DHCP / NAT, DNS, Subnetting, pfSense\\
+\textbf{Infrastructure:} Linux, Kubernetes, Docker, Helm, Nginx, Proxmox, QEMU, Terraform / OpenTofu\\
+\textbf{DevOps:} GitHub Actions, CI gating (Ruff, ShellCheck, gitleaks), cargo-llvm-cov, cargo-mutants\\
+\textbf{Security:} Gitleaks, HashiCorp Vault, Semgrep, Trivy, age encryption, AppArmor, Burp Suite, Cerbos\\
+\textbf{Data:} MongoDB, Redis, PostgreSQL, ChromaDB, MySQL, DuckDB, DuckLake\\
+\textbf{Backend:} FastAPI, Flask, Pydantic, SQLAlchemy, Alembic, Microservices, REST APIs
+
+%------------------------------------------------------------------ PROJECTS
+\section{Projects}
+\entry{UPES-ECS --- Campus Emergency Communication System}{}{\textit{\href{https://upes-ecs.rohanbatra.in}{Live demo: upes-ecs.rohanbatra.in} \;$\cdot$\; \href{https://github.com/rohanbatrain/UPES-ECS}{Code: github.com/rohanbatrain/UPES-ECS}}\\ LAN-only emergency calling on HPE Juniper networking. Presented to Team HPE at HPE's Bengaluru campus (15 Jul 2026) and demonstrated live at UPES (20 Jul 2026).\\ \textit{Juniper SRX/EX/Mist, Junos, Asterisk/PJSIP, FastAPI, NETCONF, PowerShell}}
+\begin{itemize}
+  \item Co-built a \textbf{LAN-only} campus emergency calling system (one-number 111 hotline) on Asterisk/PJSIP requiring no internet, SIM, or cloud --- designed, deployed and operated end-to-end on an \textbf{HPE Juniper} networking backbone.
+  \item Configured the enterprise fabric: \textbf{Juniper SRX300/320} as the guarded edge (firewall, DHCP, NTP, LAN-only boundary), a \textbf{Virtual Chassis of two EX2300-C-12P} PoE switches carrying the voice network, and two \textbf{Mist AP32} Wi-Fi 6 access points for campus-wide softphone reach.
+  \item Engineered the voice fabric for zero-touch operation and self-healing: \textbf{LLDP-MED} auto-provisioning of voice VLAN, PoE class and DSCP; strict-priority \textbf{CoS for RTP}; \textbf{DHCP-snooping with Dynamic ARP Inspection} to protect the failover path; and Junos \textbf{event-options} policies that power-cycle a hung AP without human intervention. Budgeted PoE against the switch's real 124 W ceiling.
+  \item Designed \textbf{offline caller location by switch port} (IP to MAC to port to room) so the network identifies where a 111 call originated with no cloud or location service, and fed live switch/AP state to the Operations Console over \textbf{NETCONF}.
+  \item Operated it as a production system where downtime is a safety defect --- active/standby high availability, health checks, load testing, and incident root-cause analysis. Three documented RCAs: a serialized single-threaded proxy, a NAT media-address fault dropping every call at 32 seconds, and leaked channels with no teardown path.
+  \item Developed a FastAPI status/control API exposing real-time queue, call, and system state to an operations console and live LED-TV wallboards, provisioned end-to-end via a single PowerShell installer.
+  \item Implemented multilingual IVR across \textbf{44 languages} with Piper TTS voice prompts and an offline panic-coach fallback, gated by CI (Ruff, ShellCheck, PSScriptAnalyzer, gitleaks).
+\end{itemize}
+
+\entry{Shimpaku --- Mist-style Assurance for a Junos Lab}{2026 -- Present}{\textit{\href{https://github.com/rohanbatrain/shimpaku}{Code: github.com/rohanbatrain/shimpaku} \;$\cdot$\; \href{https://github.com/rohanbatrain/juniper-7-day-sprint}{Lab: github.com/rohanbatrain/juniper-7-day-sprint}}\\ Assurance NMS for a seven-device vJunos lab, built on my Juniper 7-Day Sprint lab as code.\\ \textit{Python, FastAPI, React, TypeScript, Junos, gNMI, NETCONF/PyEZ, MCP, DuckDB, SQLite, OSPF, EVPN-VXLAN, BFD, Ansible, libvirt/KVM}}
+\begin{itemize}
+  \item Built \textbf{Mist-style assurance}: gNMI telemetry every 10\,s, service levels from 24 synthetic probes, and \textbf{blast-radius} root cause on live devices, with a fault-injection harness (80/80 self-test trials over 16 scenarios, config restored after each).
+  \item Designed \textbf{Ask Shim}, an MCP AI agent that investigates across campus and leaf--spine topologies but can only \textbf{propose} changes: human approval, ten guardrails, \texttt{commit confirmed} with a validation window, and a hash-chained audit of every call --- in its first week, 8 of 16 proposals were blocked before any commit.
+  \item \textit{Juniper 7-Day Sprint (the lab underneath):} \textbf{topology-as-code} vJunos on plain libvirt/KVM --- per-link bridges, nftables-isolated management, qcow2 snapshots for instant rollback after every ``break it'' drill.
+  \item Built a spine/leaf \textbf{EVPN-VXLAN} fabric (OSPF underlay, iBGP EVPN overlay, ECMP); a dead spine took the 40\,s OSPF dead interval to detect, so I closed it with \textbf{BFD} (300\,ms $\times$ 3) as an 8-line generated diff.
+  \item Automated it end to end: config rendered from the topology, committed over \textbf{NETCONF (PyEZ)} or Ansible, then OSPF, ECMP, EVPN and cross-VXLAN reachability asserted --- idempotent, drift-repairing, checked in GitHub Actions CI.
+\end{itemize}
+
+\entry{Paridyum --- Independent Multi-Tenant Platform}{}{\textit{\href{https://paridyum.in}{Live demo: paridyum.in}}\\ Self-directed systems project: built solo from an empty directory to a running five-node Kubernetes cluster on self-hosted metal with a public internet edge.\\ \textit{Rust, OpenTofu, Ansible, Talos Linux, Kubernetes, Cilium, PostgreSQL}}
+\begin{itemize}
+  \item Built a \textbf{specification-as-software governance system}: 251 versioned artifacts (constitution, architecture decision records, standards, RFCs) with machine checks mapped outward to \textbf{NIST SSDF, CIS v8.1 and NIST CSF 2.0}, a multi-axis test-type taxonomy, and a precedence order in which existing code is the lowest authority.
+  \item Delivered the full infrastructure path: hardened bare metal (AppArmor, nftables, confined QEMU/libvirt) through \textbf{Proxmox and OpenTofu} to \textbf{Talos Linux and Kubernetes} with Cilium as CNI and kube-proxy replacement, L2-announced load-balancer VIPs, and etcd snapshots that assert they captured something.
+  \item Wrote \textbf{31,000+ lines of Rust} across two production tools --- hexagonal architecture, trait-based abstraction, injectable clock adapters, and three independent SHA-256 hash chains for tamper-evident audit records.
+\end{itemize}
+
+\entry{AutoTriage --- Autonomous Vulnerability Triage \& Remediation Agent}{}{\textit{\href{https://github.com/rohanbatrain/autotriage}{Code: github.com/rohanbatrain/autotriage}}\\ An agent that triages real scanner findings end-to-end, with evals and human-in-the-loop guardrails.\\ \textit{Python, Claude Agent SDK, Semgrep, Trivy, Gitleaks, Pydantic}}
+\begin{itemize}
+  \item Built an autonomous vulnerability-triage agent on the Claude Agent SDK that ingests Semgrep, Trivy, and Gitleaks findings, reasons about severity and business impact, and files tickets, assigns owners, and drafts remediation PRs.
+  \item Enforced human-in-the-loop guardrails via Pydantic validators --- confidence-threshold escalation, fail-closed on malformed output, and prompt-injection defenses that treat scanner output as untrusted input.
+  \item Built a fix-validation loop that applies proposed patches to an isolated copy of the code and re-runs the scanner, accepting a fix only when the finding is verifiably resolved with no regression.
+  \item Designed an eval harness scoring triage decisions against a labelled ground-truth set: \textbf{100\% verdict accuracy} across 44 live findings triaged into 24 tickets and 20 human escalations, backed by 68 tests at 89\% coverage.
+\end{itemize}
+
+%------------------------------------------------------------------ EXPERIENCE
+\section{Experience}
+\entry{Hardware \& WireGuard Research Intern}{Jul 2026 -- Present}{Exaflair Technologies Pvt. Ltd., Dehradun --- Remote}
+\begin{itemize}
+  \item Primary infrastructure contributor to \textbf{DEKLO}, Exaflair's self-hosted edge PaaS: Ansible-automated \textbf{k3s} fleet over a \textbf{WireGuard} mesh --- a Mumbai hub plus edge nodes on consumer broadband in Chandigarh --- with node hardening, fleet conventions, and CloudNativePG PostgreSQL.
+  \item Built backups for every tenant database with restore drills, turned on container-registry authentication, and surfaced node-install failures and live node state in the provisioning portal.
+  \item Wrote the product-research site behind the platform design: instrumented trials, recorded decisions, and measured cross-carrier latency and packet loss.
+\end{itemize}
+
+\entry{Platform Engineering Intern}{Nov 2025 -- Jul 2026}{Eve (TechyMonks), Bengaluru --- Remote}
+\begin{itemize}
+  \item Founded the \textbf{Eve Gateway Stack} on APISIX and etcd --- central routing, JWT authentication, rate limiting, CORS, and Prometheus metrics --- establishing the platform's central trust and routing layer, with gateway-level tenant isolation, trusted tenant/user header injection, and Cerbos-based authorization rules.
+  \item Founded and led the \textbf{Eve Data Management Service}: a FastAPI microservice with source/destination/connection APIs, SQLModel models, Alembic migrations, an Airbyte Config API client, sync orchestration, webhook routes, health checks, and Kubernetes/EKS deployment.
+  \item Built \textbf{Airbyte-based ingestion} --- typed connectors, connection testing, sync polling and S3/MinIO bucket creation --- and resolved staging failures across timeouts, secrets, readiness probes and Temporal.
+\end{itemize}
+
+%------------------------------------------------------------------ CERTIFICATIONS
+\section{Certifications}
+\begin{itemize}
+  \item \textbf{Open Learning --- Migrating from the Cisco CCNA to the JNCIA-Junos}, HPE Networking Education Services (Sep 2026)
+  \item \textbf{In progress, via the Juniper 7-Day Sprint:} JNCIA-Junos, JNCIA-Cloud, JNCIA-SEC, JNCIA-MistAI, JNCIA-Design, JNCIA-DevOps, JNCIA-DC
+\end{itemize}
+
+%------------------------------------------------------------------ ACHIEVEMENTS
+\section{Achievements}
+\begin{itemize}
+  \item \textbf{Finalist} --- HACKIITK 2026, IIT Kanpur: top 0.4\% of 1,300+ teams (9,000+ participants), with an offline AI policy-gap analyser (\href{https://github.com/rohanbatrain/hackiitk}{Code: github.com/rohanbatrain/hackiitk})
+  \item \textbf{Top 15\%} --- TryHackMe cybersecurity learning platform
+  \item \textbf{Semifinalist, twice} --- Eureka! Junior, E-Cell IIT Bombay (2021, 2022)
+\end{itemize}
+
+\end{document}

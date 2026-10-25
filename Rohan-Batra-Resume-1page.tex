@@ -1,0 +1,110 @@
+%==============================================================================
+%  Resume template. Double-angle-bracket tokens are filled by
+%  pipeline/render_resume.py. Do not compile this file directly — compile the
+%  generated output in resumes/variants/ instead.
+%
+%  ATS-safe by construction: single column, no tables/graphics in the parse
+%  path, standard section headings, selectable text, standard fonts.
+%==============================================================================
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[left=1.25cm,right=1.25cm,top=0.95cm,bottom=0.95cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage[hidelinks,pdftex,pdfauthor={Rohan Batra},pdftitle={Rohan Batra - Resume},pdfsubject={Resume},pdfcreator={pdflatex}]{hyperref}
+\pdfgentounicode=1
+
+\definecolor{rulegray}{gray}{0.55}
+\definecolor{linkblue}{RGB}{20,60,140}
+
+\hypersetup{colorlinks=true,urlcolor=linkblue,linkcolor=linkblue}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Compact section headings with a rule.
+% \MakeUppercase lives in the before-code (5th arg) so it applies only to the
+% title text — putting \uppercase in the format arg also uppercases the
+% after-code and breaks the \textcolor name.
+\titleformat{\section}{\normalfont\large\bfseries}{}{0pt}{\MakeUppercase}[\vspace{-0.6em}\textcolor{rulegray}{\rule{\linewidth}{0.5pt}}]
+\titlespacing*{\section}{0pt}{0.6em}{0.25em}
+
+\setlist[itemize]{leftmargin=1.05em,topsep=0.08em,itemsep=0.04em,parsep=0pt,label=\textbullet}
+
+% Entry header: bold title left, tech/right meta in italics.
+\newcommand{\entry}[3]{%
+  \textbf{#1}\hfill\textit{\small #2}\\[-0.15em]
+  {\small #3}\par\vspace{0.08em}%
+}
+
+\begin{document}
+
+%------------------------------------------------------------------ HEADER
+\begin{center}
+  {\LARGE\bfseries Rohan Batra}\\[0.25em]
+  {\small
+    Vikasnagar, Dehradun, Uttarakhand, India \;|\; \href{mailto:contact@rohanbatra.in}{contact@rohanbatra.in} \;|\; +91-74178-79921\\[0.15em]
+    \href{https://github.com/rohanbatrain}{github.com/rohanbatrain} \;|\; \href{https://linkedin.com/in/rohanbatrain}{linkedin.com/in/rohanbatrain} \;|\; \href{https://hpe.rohanbatra.in}{hpe.rohanbatra.in} \;|\; \href{https://portfolio.rohanbatra.in}{portfolio.rohanbatra.in}
+  }
+\end{center}
+
+
+%------------------------------------------------------------------ SUMMARY
+\section{Summary}
+Final-year CS (Cyber Security) student at UPES, open to any role at HPE --- networking, platform, software, support or security, internship or full-time. Co-built and operates a campus emergency system on HPE Juniper SRX, EX and Mist, presented to Team HPE; built Shimpaku, Mist-style assurance for a Junos lab.
+
+%------------------------------------------------------------------ EDUCATION
+\section{Education}
+\entry{UPES Dehradun --- B.Tech (Hons.) Computer Science Engineering, Cyber Security}{Aug 2023 -- Aug 2027}{CGPA 8.1/10}
+
+%------------------------------------------------------------------ SKILLS
+\section{Skills}
+\textbf{Networking:} HPE Juniper SRX / EX / Mist, Junos, OSPF, BGP EVPN-VXLAN, BFD, gNMI, NETCONF, Virtual Chassis, VLANs, QoS / CoS, LLDP-MED, PoE, DHCP / NAT, DNS\\
+\textbf{Infrastructure:} Linux, Kubernetes, Docker, Helm, Proxmox, QEMU/KVM, Terraform / OpenTofu, Ansible, GitHub Actions\\
+\textbf{Languages \& backend:} Python, C++, C, Rust, Shell, FastAPI, PostgreSQL, Redis\quad
+\textbf{Security:} Semgrep, Trivy, Gitleaks, Vault, AppArmor
+
+%------------------------------------------------------------------ PROJECTS
+\section{Projects}
+\entry{UPES-ECS --- Campus Emergency Communication System}{\href{https://upes-ecs.rohanbatra.in}{Live} \textbar{} \href{https://github.com/rohanbatrain/UPES-ECS}{Code}}{LAN-only emergency calling on HPE Juniper networking, presented to Team HPE in Bengaluru (15 Jul 2026) and live at UPES (20 Jul 2026).}
+\begin{itemize}
+  \item Co-built a \textbf{LAN-only} 111 hotline on Asterisk/PJSIP (no internet, SIM or cloud) on \textbf{Juniper SRX300/320}, a \textbf{Virtual Chassis of two EX2300-C-12P} PoE switches and \textbf{Mist AP32} Wi-Fi 6.
+  \item Engineered self-healing voice: \textbf{LLDP-MED} voice VLAN provisioning, strict-priority \textbf{CoS for RTP}, DHCP snooping with DAI, Junos \textbf{event-options} that power-cycle a hung AP, and \textbf{caller location by switch port} over NETCONF.
+  \item Operate it as production: active/standby HA, health checks, load testing; three documented RCAs, including a NAT media-address fault that dropped every call at 32\,s.
+\end{itemize}
+
+\entry{Shimpaku --- Mist-style Assurance for a Junos Lab}{\href{https://github.com/rohanbatrain/shimpaku}{Code} \textbar{} \href{https://github.com/rohanbatrain/juniper-7-day-sprint}{Lab}}{Assurance NMS for a seven-device vJunos lab, built on my Juniper 7-Day Sprint lab as code.}
+\begin{itemize}
+  \item gNMI telemetry every 10\,s, service levels from 24 synthetic probes, \textbf{blast-radius} root cause, and a fault-injection harness (80/80 self-test trials).
+  \item AI agent that can only \textbf{propose} changes over MCP: human approval, ten guardrails, \texttt{commit confirmed}, hash-chained audit --- 8 of 16 first-week proposals blocked before commit.
+  \item \textit{7-Day Sprint:} spine/leaf \textbf{EVPN-VXLAN} on libvirt/KVM; closed a 40\,s dead-spine detection gap with \textbf{BFD}; config generated and deployed over NETCONF/Ansible, checked in CI.
+\end{itemize}
+
+\entry{Paridyum --- Independent Multi-Tenant Platform}{\href{https://paridyum.in}{Live}}{Solo: bare metal to a five-node Kubernetes cluster with a public edge.}
+\begin{itemize}
+  \item Hardened metal through \textbf{Proxmox and OpenTofu} to \textbf{Talos Linux and Kubernetes} with Cilium; 31,000+ lines of Rust across two production tools.
+\end{itemize}
+
+%------------------------------------------------------------------ EXPERIENCE
+\section{Experience}
+\entry{Hardware \& WireGuard Research Intern}{Jul 2026 -- Present}{Exaflair Technologies Pvt. Ltd., Dehradun --- Remote}
+\begin{itemize}
+  \item Primary infrastructure contributor to \textbf{DEKLO}, a self-hosted edge PaaS: Ansible-automated \textbf{k3s} fleet over a \textbf{WireGuard} mesh, tenant database backups with restore drills, registry authentication.
+\end{itemize}
+\entry{Platform Engineering Intern}{Nov 2025 -- Jul 2026}{Eve (TechyMonks), Bengaluru --- Remote}
+\begin{itemize}
+  \item Founded the \textbf{APISIX gateway} (routing, JWT auth, tenant isolation, Cerbos authorization) and the FastAPI \textbf{data management service} with Airbyte ingestion on \textbf{AWS EKS}.
+\end{itemize}
+
+%------------------------------------------------------------------ ACHIEVEMENTS
+\section{Achievements \& Certifications}
+\begin{itemize}
+  \item \textbf{Finalist} --- HACKIITK 2026, IIT Kanpur: top 0.4\% of 1,300+ teams \;|\; \textbf{Top 15\%} --- TryHackMe
+  \item \textbf{Open Learning --- Migrating from the Cisco CCNA to the JNCIA-Junos}, HPE Networking Education Services (Sep 2026)
+\end{itemize}
+
+\end{document}

@@ -128,7 +128,7 @@
         <dl class="hero__stats reveal">
           <div><dt>Always-on</dt><dd>Production system I operate (UPES-ECS)</dd></div>
           <div><dt>3</dt><dd>Incidents root-caused and documented</dd></div>
-          <div><dt>Junos</dt><dd>EVPN-VXLAN lab as code (Shimpaku)</dd></div>
+          <div><dt>7 vJunos</dt><dd>Lab with Mist-style assurance (Shimpaku)</dd></div>
           <div><dt>HACKIITK&nbsp;'26</dt><dd>Finalist · IIT Kanpur (top ~0.4%)</dd></div>
         </dl>
       </div>
@@ -294,15 +294,36 @@
           <article class="project-card project-card--featured reveal">
             <div class="project-card__top">
               <h3 class="project-card__title">Shimpaku</h3>
-              <span class="chip chip--green">Juniper by HPE sprint</span>
+              <span class="chip chip--green">Mist-style assurance</span>
             </div>
             <p class="project-card__desc">
-              Junos lab as code on libvirt/KVM: a spine/leaf <strong>EVPN-VXLAN</strong> fabric with OSPF
-              underlay and BFD, generated from the topology and deployed over NETCONF (PyEZ) or Ansible
-              with machine-checked validation in CI. Working towards seven JNCIA tracks.
+              A Mist-style assurance NMS for a seven-device vJunos lab: gNMI telemetry every 10&nbsp;s,
+              service levels, <strong>blast-radius</strong> root cause, and an AI agent that can only
+              <strong>propose</strong> changes — a human approves, ten guardrails check, and the fix
+              lands under <code>commit confirmed</code> with a validation window and a hash-chained audit.
+              Proven by a fault-injection benchmark, not a demo recording.
             </p>
             <ul class="tags">
-              <li>Junos</li><li>EVPN-VXLAN</li><li>NETCONF</li><li>Ansible</li>
+              <li>Junos</li><li>gNMI</li><li>NETCONF</li><li>MCP</li><li>FastAPI</li><li>DuckDB</li>
+            </ul>
+            <div class="project-card__foot">
+              <a class="project-card__link" href="https://github.com/rohanbatrain/shimpaku" target="_blank" rel="noopener">View on GitHub ↗</a>
+            </div>
+          </article>
+          <article class="project-card project-card--featured reveal">
+            <div class="project-card__top">
+              <h3 class="project-card__title">Juniper 7-Day Sprint</h3>
+              <span class="chip chip--green">Junos lab as code</span>
+            </div>
+            <p class="project-card__desc">
+              Seven days of Junos on plain libvirt/KVM — routing, switching, security, data centre and
+              automation. A spine/leaf <strong>EVPN-VXLAN</strong> fabric with OSPF underlay; a dead spine
+              took 40&nbsp;s to detect, so I closed it with <strong>BFD</strong> (300&nbsp;ms × 3).
+              Config generated from the topology, deployed over NETCONF (PyEZ) or Ansible, validated in CI.
+              It is the lab Shimpaku monitors.
+            </p>
+            <ul class="tags">
+              <li>Junos</li><li>EVPN-VXLAN</li><li>BFD</li><li>NETCONF</li><li>Ansible</li>
             </ul>
             <div class="project-card__foot">
               <a class="project-card__link" href="https://github.com/rohanbatrain/juniper-7-day-sprint" target="_blank" rel="noopener">View on GitHub ↗</a>

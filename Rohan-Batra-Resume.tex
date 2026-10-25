@@ -83,7 +83,7 @@ Final-year B.Tech Computer Science (Cyber Security) student at UPES (graduating 
   \item Implemented multilingual IVR across \textbf{44 languages} with Piper TTS voice prompts and an offline panic-coach fallback, gated by CI (Ruff, ShellCheck, PSScriptAnalyzer, gitleaks).
 \end{itemize}
 
-\entry{Shimpaku --- Juniper Junos Lab as Code}{\href{https://github.com/rohanbatrain/juniper-7-day-sprint}{Code}}{Hands-on Juniper by HPE sprint across routing, switching, security, data centre and automation.\\ \textit{vJunos, libvirt/KVM, OSPF, BGP EVPN-VXLAN, BFD, PyEZ/NETCONF, Ansible}}
+\entry{Juniper 7-Day Sprint --- Junos Lab as Code}{\href{https://github.com/rohanbatrain/juniper-7-day-sprint}{Code}}{Hands-on Juniper by HPE sprint across routing, switching, security, data centre and automation.\\ \textit{vJunos, libvirt/KVM, OSPF, BGP EVPN-VXLAN, BFD, PyEZ/NETCONF, Ansible}}
 \begin{itemize}
   \item Built a \textbf{topology-as-code} vJunos lab on plain libvirt/KVM: per-link bridges, isolated management with nftables, qcow2 overlays for instant snapshot/rollback on every ``break it'' drill.
   \item Built a \textbf{spine/leaf EVPN-VXLAN} fabric: OSPF underlay, iBGP EVPN overlay, ECMP; found that a dead spine took the 40\,s OSPF dead interval to detect, and closed it with \textbf{BFD} (300\,ms $\times$ 3) as an 8-line generated diff.

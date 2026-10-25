@@ -87,10 +87,11 @@ Final-year B.Tech Computer Science (Cyber Security) student at UPES (graduating 
 \begin{itemize}
   \item Built \textbf{Mist-style assurance}: gNMI telemetry every 10\,s, service levels from 24 synthetic probes, and \textbf{blast-radius} root cause on live devices, with a fault-injection harness (80/80 self-test trials over 16 scenarios, config restored after each).
   \item Designed an AI agent that can only \textbf{propose} changes over MCP: human approval, ten guardrails, \texttt{commit confirmed} with a validation window, and a hash-chained audit of every call --- in its first week, 8 of 16 proposals were blocked before any commit.
-  \item \textit{Supporting --- Juniper 7-Day Sprint:} spine/leaf \textbf{EVPN-VXLAN} fabric on libvirt/KVM; closed a 40\,s dead-spine detection gap with \textbf{BFD} (300\,ms $\times$ 3); config generated from the topology and deployed over NETCONF or Ansible, checked in CI.
+  \item \textit{Juniper 7-Day Sprint (the lab underneath):} \textbf{topology-as-code} vJunos on plain libvirt/KVM --- per-link bridges, nftables-isolated management, qcow2 snapshots for instant rollback after every ``break it'' drill.
+  \item Built a spine/leaf \textbf{EVPN-VXLAN} fabric (OSPF underlay, iBGP EVPN overlay, ECMP); a dead spine took the 40\,s OSPF dead interval to detect, so I closed it with \textbf{BFD} (300\,ms $\times$ 3) as an 8-line generated diff.
+  \item Automated it end to end: config rendered from the topology, committed over \textbf{NETCONF (PyEZ)} or Ansible, then OSPF, ECMP, EVPN and cross-VXLAN reachability asserted --- idempotent, drift-repairing, checked in GitHub Actions CI.
 \end{itemize}
 
-\newpage
 \entry{Paridyum --- Independent Multi-Tenant Platform}{\href{https://paridyum.in}{Live}}{Self-directed systems project: built solo from an empty directory to a running five-node Kubernetes cluster on self-hosted metal with a public internet edge.\\ \textit{Rust, OpenTofu, Ansible, Talos Linux, Kubernetes, Cilium, PostgreSQL}}
 \begin{itemize}
   \item Built a \textbf{specification-as-software governance system}: 251 versioned artifacts (constitution, architecture decision records, standards, RFCs) with machine checks mapped outward to \textbf{NIST SSDF, CIS v8.1 and NIST CSF 2.0}, a multi-axis test-type taxonomy, and a precedence order in which existing code is the lowest authority.
@@ -120,11 +121,6 @@ Final-year B.Tech Computer Science (Cyber Security) student at UPES (graduating 
   \item Founded the \textbf{Eve Gateway Stack} on APISIX and etcd --- central routing, JWT authentication, rate limiting, CORS, and Prometheus metrics --- establishing the platform's central trust and routing layer, with gateway-level tenant isolation, trusted tenant/user header injection, and Cerbos-based authorization rules.
   \item Founded and led the \textbf{Eve Data Management Service}: a FastAPI microservice with source/destination/connection APIs, SQLModel models, Alembic migrations, an Airbyte Config API client, sync orchestration, webhook routes, health checks, and Kubernetes/EKS deployment.
   \item Built \textbf{Airbyte-based ingestion} --- typed connectors, connection testing, sync polling and S3/MinIO bucket creation --- and resolved staging failures across timeouts, secrets, readiness probes and Temporal.
-\end{itemize}
-
-\entry{Technical Head}{Sep 2025 -- Present}{Google Developer Groups On Campus (GDGOC), UPES Dehradun}
-\begin{itemize}
-  \item Led and delivered technical workshops for \textbf{100+ participants} across cloud, system design, and full-stack development.
 \end{itemize}
 
 \entry{Linux Support \& Community Volunteer}{Sep 2023 -- Apr 2025}{LinuxWale, Dehradun}

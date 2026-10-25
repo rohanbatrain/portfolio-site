@@ -92,7 +92,7 @@ Final-year B.Tech Computer Science (Cyber Security) student at UPES (graduating 
   \item Automated it end to end: config rendered from the topology, committed over \textbf{NETCONF (PyEZ)} or Ansible, then OSPF, ECMP, EVPN and cross-VXLAN reachability asserted --- idempotent, drift-repairing, checked in GitHub Actions CI.
 \end{itemize}
 
-\entry{Paridyum --- Independent Multi-Tenant Platform}{}{\textit{\href{https://paridyum.in}{Live demo: paridyum.in}}\\ Self-directed systems project: built solo from an empty directory to a running five-node Kubernetes cluster on self-hosted metal with a public internet edge.\\ \textit{Rust, OpenTofu, Ansible, Talos Linux, Kubernetes, Cilium, PostgreSQL}}
+\entry{Paridyum --- Independent Multi-Tenant Platform}{}{Self-directed systems project: built solo from an empty directory to a running five-node Kubernetes cluster on self-hosted metal with a public internet edge.\\ \textit{Rust, OpenTofu, Ansible, Talos Linux, Kubernetes, Cilium, PostgreSQL}}
 \begin{itemize}
   \item Built a \textbf{specification-as-software governance system}: 251 versioned artifacts (constitution, architecture decision records, standards, RFCs) with machine checks mapped outward to \textbf{NIST SSDF, CIS v8.1 and NIST CSF 2.0}, a multi-axis test-type taxonomy, and a precedence order in which existing code is the lowest authority.
   \item Delivered the full infrastructure path: hardened bare metal (AppArmor, nftables, confined QEMU/libvirt) through \textbf{Proxmox and OpenTofu} to \textbf{Talos Linux and Kubernetes} with Cilium as CNI and kube-proxy replacement, L2-announced load-balancer VIPs, and etcd snapshots that assert they captured something.

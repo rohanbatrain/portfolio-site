@@ -54,7 +54,7 @@
 
 %------------------------------------------------------------------ SUMMARY
 \section{Summary}
-Final-year B.Tech Computer Science (Cyber Security) student at UPES (graduating 2027, CGPA 8.1) open to any role at HPE. Co-built and operates a LAN-first campus emergency communication system on HPE Juniper SRX, EX and Mist hardware --- presented to Team HPE in Bengaluru --- and maintains it hands-on: configuring and updating the hardware and software, troubleshooting incidents to root cause, and running health checks and load tests. Programs in Python and C++; comfortable across Linux, containers, cloud and the networking beneath them.
+Final-year B.Tech Computer Science (Cyber Security) student at UPES (graduating 2027, CGPA 8.1), open to any role at HPE --- networking, platform, software, support or security, internship or full-time. Co-built and operates a LAN-first campus emergency communication system on HPE Juniper SRX, EX and Mist hardware, presented to Team HPE in Bengaluru, and troubleshoots it to root cause. Built Shimpaku, a Mist-style assurance system for a seven-device Junos lab with a guardrailed AI agent. Programs in Python and C++; comfortable across Linux, containers, Kubernetes, cloud and the networking beneath them.
 
 %------------------------------------------------------------------ EDUCATION
 \section{Education}
@@ -63,7 +63,7 @@ Final-year B.Tech Computer Science (Cyber Security) student at UPES (graduating 
 %------------------------------------------------------------------ SKILLS
 \section{Skills}
 \textbf{Languages:} Python, C++, C, Rust, TypeScript, JavaScript, Shell\\
-\textbf{Networking:} HPE Juniper SRX / EX / Mist, Junos, Virtual Chassis, VLANs, QoS / CoS, LLDP-MED, PoE, NETCONF, DHCP / NAT, DNS, Subnetting, pfSense\\
+\textbf{Networking:} HPE Juniper SRX / EX / Mist, Junos, OSPF, BGP EVPN-VXLAN, BFD, gNMI, Virtual Chassis, VLANs, QoS / CoS, LLDP-MED, PoE, NETCONF, DHCP / NAT, DNS, Subnetting, pfSense\\
 \textbf{Infrastructure:} Linux, Kubernetes, Docker, Helm, Nginx, Proxmox, QEMU, Terraform / OpenTofu\\
 \textbf{DevOps:} GitHub Actions, CI gating (Ruff, ShellCheck, gitleaks), cargo-llvm-cov, cargo-mutants\\
 \textbf{Security:} Gitleaks, HashiCorp Vault, Semgrep, Trivy, age encryption, AppArmor, Burp Suite, Cerbos\\
@@ -85,11 +85,12 @@ Final-year B.Tech Computer Science (Cyber Security) student at UPES (graduating 
 
 \entry{Shimpaku --- Mist-style Assurance for a Junos Lab}{\href{https://github.com/rohanbatrain/shimpaku}{Code} \textbar{} \href{https://github.com/rohanbatrain/juniper-7-day-sprint}{Lab}}{Assurance NMS for a seven-device vJunos lab, built on my Juniper 7-Day Sprint lab as code.\\ \textit{Junos, gNMI, NETCONF/PyEZ, MCP, FastAPI, DuckDB, OSPF, EVPN-VXLAN, BFD, Ansible, libvirt/KVM}}
 \begin{itemize}
-  \item Built \textbf{Mist-style assurance}: gNMI telemetry every 10\,s, service levels from 24 synthetic probes, and \textbf{blast-radius} root cause on live devices, proven by a fault-injection benchmark.
-  \item AI agent that can only \textbf{propose} changes: human approval, ten guardrails, \texttt{commit confirmed} with a validation window, and a hash-chained audit of every call.
+  \item Built \textbf{Mist-style assurance}: gNMI telemetry every 10\,s, service levels from 24 synthetic probes, and \textbf{blast-radius} root cause on live devices, with a fault-injection harness (80/80 self-test trials over 16 scenarios, config restored after each).
+  \item Designed an AI agent that can only \textbf{propose} changes over MCP: human approval, ten guardrails, \texttt{commit confirmed} with a validation window, and a hash-chained audit of every call --- in its first week, 8 of 16 proposals were blocked before any commit.
   \item \textit{Supporting --- Juniper 7-Day Sprint:} spine/leaf \textbf{EVPN-VXLAN} fabric on libvirt/KVM; closed a 40\,s dead-spine detection gap with \textbf{BFD} (300\,ms $\times$ 3); config generated from the topology and deployed over NETCONF or Ansible, checked in CI.
 \end{itemize}
 
+\newpage
 \entry{Paridyum --- Independent Multi-Tenant Platform}{\href{https://paridyum.in}{Live}}{Self-directed systems project: built solo from an empty directory to a running five-node Kubernetes cluster on self-hosted metal with a public internet edge.\\ \textit{Rust, OpenTofu, Ansible, Talos Linux, Kubernetes, Cilium, PostgreSQL}}
 \begin{itemize}
   \item Built a \textbf{specification-as-software governance system}: 251 versioned artifacts (constitution, architecture decision records, standards, RFCs) with machine checks mapped outward to \textbf{NIST SSDF, CIS v8.1 and NIST CSF 2.0}, a multi-axis test-type taxonomy, and a precedence order in which existing code is the lowest authority.
@@ -118,7 +119,7 @@ Final-year B.Tech Computer Science (Cyber Security) student at UPES (graduating 
 \begin{itemize}
   \item Founded the \textbf{Eve Gateway Stack} on APISIX and etcd --- central routing, JWT authentication, rate limiting, CORS, and Prometheus metrics --- establishing the platform's central trust and routing layer, with gateway-level tenant isolation, trusted tenant/user header injection, and Cerbos-based authorization rules.
   \item Founded and led the \textbf{Eve Data Management Service}: a FastAPI microservice with source/destination/connection APIs, SQLModel models, Alembic migrations, an Airbyte Config API client, sync orchestration, webhook routes, health checks, and Kubernetes/EKS deployment.
-  \item Built \textbf{Airbyte-based ingestion} --- typed connector definitions, USER vs PLATFORM destination modes, connection testing, sync polling and history tracking, and S3/MinIO bucket auto-creation --- and resolved staging failures across Airbyte URLs, timeouts, secrets, readiness probes, and Temporal support.
+  \item Built \textbf{Airbyte-based ingestion} --- typed connectors, connection testing, sync polling and S3/MinIO bucket creation --- and resolved staging failures across timeouts, secrets, readiness probes and Temporal.
 \end{itemize}
 
 \entry{Technical Head}{Sep 2025 -- Present}{Google Developer Groups On Campus (GDGOC), UPES Dehradun}
@@ -128,8 +129,7 @@ Final-year B.Tech Computer Science (Cyber Security) student at UPES (graduating 
 
 \entry{Linux Support \& Community Volunteer}{Sep 2023 -- Apr 2025}{LinuxWale, Dehradun}
 \begin{itemize}
-  \item Onboarded \textbf{10+ students} to Linux --- distribution selection, dual-boot setup, and driver/hardware troubleshooting across varied hardware.
-  \item Wrote shell scripts to automate post-install configuration and routine setup tasks.
+  \item Onboarded \textbf{10+ students} to Linux (dual-boot, driver and hardware troubleshooting) and scripted post-install setup in shell.
 \end{itemize}
 
 %------------------------------------------------------------------ CERTIFICATIONS
@@ -144,8 +144,7 @@ Final-year B.Tech Computer Science (Cyber Security) student at UPES (graduating 
 \begin{itemize}
   \item \textbf{Finalist} --- HACKIITK 2026, IIT Kanpur: top 0.4\% of 1,300+ teams (9,000+ participants), with an offline AI policy-gap analyser (\href{https://github.com/rohanbatrain/hackiitk}{Code})
   \item \textbf{Top 15\%} --- TryHackMe cybersecurity learning platform
-  \item \textbf{Semifinalist} --- Eureka! Junior 2022--23, E-Cell IIT Bombay (2022)
-  \item \textbf{Semifinalist} --- Eureka! Junior 2021--22, E-Cell IIT Bombay (2021)
+  \item \textbf{Semifinalist, twice} --- Eureka! Junior, E-Cell IIT Bombay (2021, 2022)
 \end{itemize}
 
 \end{document}

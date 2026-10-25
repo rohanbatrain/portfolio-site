@@ -83,11 +83,11 @@ Final-year B.Tech Computer Science (Cyber Security) student at UPES (graduating 
   \item Implemented multilingual IVR across \textbf{44 languages} with Piper TTS voice prompts and an offline panic-coach fallback, gated by CI (Ruff, ShellCheck, PSScriptAnalyzer, gitleaks).
 \end{itemize}
 
-\entry{Juniper 7-Day Sprint --- Junos Lab as Code}{\href{https://github.com/rohanbatrain/juniper-7-day-sprint}{Code}}{Hands-on Juniper by HPE sprint across routing, switching, security, data centre and automation.\\ \textit{vJunos, libvirt/KVM, OSPF, BGP EVPN-VXLAN, BFD, PyEZ/NETCONF, Ansible}}
+\entry{Shimpaku --- Mist-style Assurance for a Junos Lab}{\href{https://github.com/rohanbatrain/shimpaku}{Code} \textbar{} \href{https://github.com/rohanbatrain/juniper-7-day-sprint}{Lab}}{Assurance NMS for a seven-device vJunos lab, built on my Juniper 7-Day Sprint lab as code.\\ \textit{Junos, gNMI, NETCONF/PyEZ, MCP, FastAPI, DuckDB, OSPF, EVPN-VXLAN, BFD, Ansible, libvirt/KVM}}
 \begin{itemize}
-  \item Built a \textbf{topology-as-code} vJunos lab on plain libvirt/KVM: per-link bridges, isolated management with nftables, qcow2 overlays for instant snapshot/rollback on every ``break it'' drill.
-  \item Built a \textbf{spine/leaf EVPN-VXLAN} fabric: OSPF underlay, iBGP EVPN overlay, ECMP; found that a dead spine took the 40\,s OSPF dead interval to detect, and closed it with \textbf{BFD} (300\,ms $\times$ 3) as an 8-line generated diff.
-  \item Automated the fabric end to end: \texttt{gen\_fabric.py} renders Junos config from the topology, \texttt{deploy.py} commits over \textbf{NETCONF (PyEZ)} or Ansible and asserts OSPF, ECMP, EVPN and cross-VXLAN reachability --- idempotent, drift-repairing, and checked in GitHub Actions CI.
+  \item Built \textbf{Mist-style assurance}: gNMI telemetry every 10\,s, service levels from 24 synthetic probes, and \textbf{blast-radius} root cause on live devices, proven by a fault-injection benchmark.
+  \item AI agent that can only \textbf{propose} changes: human approval, ten guardrails, \texttt{commit confirmed} with a validation window, and a hash-chained audit of every call.
+  \item \textit{Supporting --- Juniper 7-Day Sprint:} spine/leaf \textbf{EVPN-VXLAN} fabric on libvirt/KVM; closed a 40\,s dead-spine detection gap with \textbf{BFD} (300\,ms $\times$ 3); config generated from the topology and deployed over NETCONF or Ansible, checked in CI.
 \end{itemize}
 
 \entry{Paridyum --- Independent Multi-Tenant Platform}{\href{https://paridyum.in}{Live}}{Self-directed systems project: built solo from an empty directory to a running five-node Kubernetes cluster on self-hosted metal with a public internet edge.\\ \textit{Rust, OpenTofu, Ansible, Talos Linux, Kubernetes, Cilium, PostgreSQL}}
@@ -136,7 +136,7 @@ Final-year B.Tech Computer Science (Cyber Security) student at UPES (graduating 
 \section{Certifications}
 \begin{itemize}
   \item \textbf{Open Learning --- Migrating from the Cisco CCNA to the JNCIA-Junos}, HPE Networking Education Services (Sep 2026)
-  \item \textbf{In progress, via the Shimpaku Juniper sprint:} JNCIA-Junos, JNCIA-Cloud, JNCIA-SEC, JNCIA-MistAI, JNCIA-Design, JNCIA-DevOps, JNCIA-DC
+  \item \textbf{In progress, via the Juniper 7-Day Sprint:} JNCIA-Junos, JNCIA-Cloud, JNCIA-SEC, JNCIA-MistAI, JNCIA-Design, JNCIA-DevOps, JNCIA-DC
 \end{itemize}
 
 %------------------------------------------------------------------ ACHIEVEMENTS

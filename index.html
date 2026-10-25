@@ -302,33 +302,18 @@
               <strong>propose</strong> changes — a human approves, ten guardrails check, and the fix
               lands under <code>commit confirmed</code> with a validation window and a hash-chained audit.
               Proven by a fault-injection benchmark, not a demo recording.
+              <br /><em>Built on my Juniper 7-Day Sprint:</em> a spine/leaf EVPN-VXLAN fabric as code,
+              where BFD closed a 40&nbsp;s dead-spine detection gap.
             </p>
             <ul class="tags">
-              <li>Junos</li><li>gNMI</li><li>NETCONF</li><li>MCP</li><li>FastAPI</li><li>DuckDB</li>
+              <li>Junos</li><li>gNMI</li><li>NETCONF</li><li>MCP</li><li>EVPN-VXLAN</li><li>BFD</li>
             </ul>
             <div class="project-card__foot">
-              <a class="project-card__link" href="https://github.com/rohanbatrain/shimpaku" target="_blank" rel="noopener">View on GitHub ↗</a>
+              <a class="project-card__link" href="https://github.com/rohanbatrain/shimpaku" target="_blank" rel="noopener">Shimpaku on GitHub ↗</a>
+              <a class="project-card__link" href="https://github.com/rohanbatrain/juniper-7-day-sprint" target="_blank" rel="noopener">7-Day Sprint lab ↗</a>
             </div>
           </article>
-          <article class="project-card project-card--featured reveal">
-            <div class="project-card__top">
-              <h3 class="project-card__title">Juniper 7-Day Sprint</h3>
-              <span class="chip chip--green">Junos lab as code</span>
-            </div>
-            <p class="project-card__desc">
-              Seven days of Junos on plain libvirt/KVM — routing, switching, security, data centre and
-              automation. A spine/leaf <strong>EVPN-VXLAN</strong> fabric with OSPF underlay; a dead spine
-              took 40&nbsp;s to detect, so I closed it with <strong>BFD</strong> (300&nbsp;ms × 3).
-              Config generated from the topology, deployed over NETCONF (PyEZ) or Ansible, validated in CI.
-              It is the lab Shimpaku monitors.
-            </p>
-            <ul class="tags">
-              <li>Junos</li><li>EVPN-VXLAN</li><li>BFD</li><li>NETCONF</li><li>Ansible</li>
-            </ul>
-            <div class="project-card__foot">
-              <a class="project-card__link" href="https://github.com/rohanbatrain/juniper-7-day-sprint" target="_blank" rel="noopener">View on GitHub ↗</a>
-            </div>
-          </article>
+
 
           <article class="project-card project-card--featured reveal">
             <div class="project-card__top">
